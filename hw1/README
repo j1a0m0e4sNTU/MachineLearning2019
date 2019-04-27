@@ -1,0 +1,12 @@
+Requirements to represent the code (Python package):
+* sklearn
+* qpsolver
+* libsvm
+* matplotlib
+* scipy
+* numpy
+
+To run the code, type:
+python3 problem13-16.py [number]
+where [number] is the question number, which could be 13~16
+

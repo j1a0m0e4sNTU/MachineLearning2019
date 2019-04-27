@@ -1,0 +1,10 @@
+requirements:
+python3
+matplotlib 
+numpy 
+
+for problem 9 ~ 12:
+python3 bagging_ridge_regression.py [number(9~12)]
+
+for problem 13 ~ 16:
+python3 adaboost.py [number(13~16)]
