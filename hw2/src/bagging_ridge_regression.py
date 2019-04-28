@@ -80,25 +80,18 @@ def problem_11():
     x_train, y_train, x_test, y_test = get_data()
     sample = np.arange(500)
     values = [0.05, 0.5, 5, 50, 500]
-    E_in_dict = {}
-    for value in values:
-        E_in_dict[value] = []
-
-    for iteration in range(250):
-        sample = []
-        for i in range(400):
-            sample.append(np.random.randint(400))
-        x_train_bootstrap = x_train[sample]
-        y_train_bootstrap = y_train[sample]
-        for value in values:
-            weight = ridge_regression(x_train_bootstrap, y_train_bootstrap, lambda_value= value)
-            error = evaluate(x_train, y_train, weight)
-            E_in_dict[value].append(error)
-    
     E_in = []
-    for value, array in E_in_dict.items():
-        E_in.append(sum(array)/len(array))
 
+    for lambda_value in values:
+        weight = np.zeros((x_train.shape[1]))
+        for _ in range(250):
+            sample = [np.random.randint(400) for _ in range(400)]
+            x_train_bootstrap = x_train[sample]
+            y_train_bootstrap = y_train[sample]
+            weight += linear_regression(x_train_bootstrap, y_train_bootstrap, lambda_value)
+
+        E_in.append(evaluate(x_train, y_train, weight))
+    
     print('E_in: {}'.format(E_in))
     plt.xlabel('lambda')
     plt.ylabel('E_in rate')
@@ -110,24 +103,17 @@ def problem_12():
     print('- problem 12 -')
     x_train, y_train, x_test, y_test = get_data()
     values = [0.05, 0.5, 5, 50, 500]
-    E_out_dict = {}
-    for value in values:
-        E_out_dict[value] = []
-
-    for iteration in range(250):
-        sample = []
-        for i in range(400):
-            sample.append(np.random.randint(400))
-        x_train_bootstrap = x_train[sample]
-        y_train_bootstrap = y_train[sample]
-        for value in values:
-            weight = ridge_regression(x_train_bootstrap, y_train_bootstrap, lambda_value= value)
-            error = evaluate(x_test, y_test, weight)
-            E_out_dict[value].append(error)
-    
     E_out = []
-    for value, array in E_out_dict.items():
-        E_out.append(sum(array)/len(array))
+
+    for lambda_value in values:
+        weight = np.zeros((x_train.shape[1]))
+        for _ in range(250):
+            sample = [np.random.randint(400) for _ in range(400)]
+            x_train_bootstrap = x_train[sample]
+            y_train_bootstrap = y_train[sample]
+            weight += linear_regression(x_train_bootstrap, y_train_bootstrap, lambda_value)
+
+        E_out.append(evaluate(x_test, y_test, weight))
 
     print('E_out: {}'.format(E_out))
     plt.xlabel('lambda')
