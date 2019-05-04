@@ -34,13 +34,12 @@ def train(regularization):
 def predict(file_name, regularization):
     x_train, y_train, _, _ = get_train_data(0)
     x_test = get_test_data()
-    pred = np.zeros(x_test.shape[0], 3)
+    pred = np.zeros((x_test.shape[0], 3))
     for i in range(3):
-        weight = linear_regression(x_train, y_train, regularization)
+        weight = linear_regression(x_train, y_train[:, i], regularization)
         pred[:, i] = x_test @ weight
     
-    del x_train
-    print('Train mse: {}'.format(average_mse(pred, y_train)))
+    del x_train, x_test
     write_submission(pred, file_name)
 
 if __name__ == '__main__':
