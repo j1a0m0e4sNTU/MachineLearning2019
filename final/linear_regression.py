@@ -27,6 +27,7 @@ def train(regularization):
         pred_train[:, i] = x_train @ weight
         pred_valid[:, i] = x_valid @ weight
     
+    del x_train, y_train, x_valid, y_valid
     print('Train mse: {}'.format(average_mse(pred_train, y_train)))
     print('Valid mse: {}'.format(average_mse(pred_valid, y_valid)))
 
@@ -38,6 +39,9 @@ def predict(file_name, regularization):
         weight = linear_regression(x_train, y_train, regularization)
         pred[:, i] = x_test @ weight
     
+    del x_train, y_train
+    print('Train mse: {}'.format(average_mse(pred, y_train)))
+    write_submission(pred, file_name)
 
 if __name__ == '__main__':
     if args.mode == 'train':
@@ -45,4 +49,4 @@ if __name__ == '__main__':
         train(args.regular)
     else:
         print('- PREDICT -')
-        predict(args.output)
+        predict(args.output, args.regular)
