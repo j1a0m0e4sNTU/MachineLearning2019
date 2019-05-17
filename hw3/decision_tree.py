@@ -8,6 +8,16 @@ class Node():
         self.right_node = None
         self.hypothesis = None
 
+    def height(self):
+        if self.left_node == None and self.right_node == None:
+            return 0
+        else :
+            return max(self.left_node.height(), self.right_node.height()) + 1
+
+    def show_info(self):
+        info = 'Feature id: {} | threashold: {} | hypothesis: {}'.format(self.feature_id, self.threshold, self.hypothesis)
+        print(info)
+
     def get_gini_index(self, xy_data):
         y_data = xy_data[:, -1]
         total_num = xy_data.shape[0]
@@ -58,11 +68,7 @@ class Node():
                     self.threshold = (data[d_id, f_id] + data[d_id -1, f_id])/2
         
         return data_optim
-        ##
-        if self.get_gini_index(xy_data) < Gini_index:
-            return None
-        else:
-            return data_optim
+        
 
     def predict(self, x_data):
         if (self.left_node == None and self.right_node == None):
@@ -78,6 +84,9 @@ class DecisionTree():
         self.root = Node()
         data_split = self.root.train(data)
         self.train(self.root, data_split, height)
+
+    def height(self):
+        return self.root.height()
 
     def train(self, node, data_split, height_remain):
         if data_split == None:
@@ -123,9 +132,9 @@ def test_decision_tree():
     data = np.random.rand(100, 5)
     data -= 0.5
     data[:, -1] = np.sign(data[:, -1])
-    dt = DecisionTree(data, 80)
+    dt = DecisionTree(data, None)
     
-    print(data)
+    #print(data)
     error_count = np.sum(np.abs(np.sign(data[:, -1] - dt.predict_all(data[:, :-1]))))
     print("Error count:", error_count)
 
