@@ -14,9 +14,13 @@ class Node():
         else :
             return max(self.left_node.height(), self.right_node.height()) + 1
 
-    def show_info(self):
-        info = 'Feature id: {} | threashold: {} | hypothesis: {}'.format(self.feature_id, self.threshold, self.hypothesis)
+    def show_info(self, node_id= 1):
+        info = 'ID {} (parent {}) |Feature id: {} | threashold: {} | hypothesis: {}'.format(node_id, node_id//2, self.feature_id, self.threshold, self.hypothesis)
         print(info)
+        if self.left_node:
+            self.left_node.show_info(node_id * 2)
+        if self.right_node:
+            self.right_node.show_info(node_id * 2 + 1)
 
     def get_gini_index(self, xy_data):
         y_data = xy_data[:, -1]
@@ -115,7 +119,7 @@ class DecisionTree():
         return np.array(prediction)
 
     def show(self):
-        pass
+        self.root.show_info()
 
 def test_node():
     node = Node()
