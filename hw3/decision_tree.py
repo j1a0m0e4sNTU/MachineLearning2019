@@ -51,7 +51,7 @@ class Node():
         if (len(np.unique(xy_data[:, -1])) == 1):
             return None
 
-        Gini_index = 1
+        Gini_index = xy_data.shape[0]
         data_optim = (None, None)
         feature_num = xy_data.shape[1] - 1
         data_num = xy_data.shape[0]
@@ -60,7 +60,7 @@ class Node():
             for d_id in range(1, data_num):
                 data_part1 = data[:d_id]
                 data_part2 = data[d_id:]
-                gini = self.get_gini_index(data_part1) + self.get_gini_index(data_part2)
+                gini = data_part1.shape[0] * self.get_gini_index(data_part1) + data_part2.shape[0] * self.get_gini_index(data_part2)
                 if gini < Gini_index:
                     Gini_index = gini
                     data_optim = (data_part1, data_part2)

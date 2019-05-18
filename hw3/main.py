@@ -1,5 +1,6 @@
 import sys
 import numpy as np
+from matplotlib import pyplot as plt
 from decision_tree import DecisionTree
 
 def get_train_data():
@@ -32,7 +33,27 @@ def problem_12():
     print('E out: {}'.format(E_out))
 
 def problem_13():
-    pass
+    train_data = get_train_data()
+    test_data  = get_test_data()
+    height = []
+    E_in = []
+    E_out = []
+
+    full_height = 5
+    for h in range(1, full_height + 1):
+        dt = DecisionTree(train_data, h)
+        e_in = get_error_rate(train_data[:, -1], dt.predict_all(train_data[:, :-1]))
+        e_out = get_error_rate(test_data[:, -1], dt.predict_all(test_data[:, :-1]))
+        height.append(h)
+        E_in.append(e_in)
+        E_out.append(e_out)
+    
+    plt.title('Red: Ein | Blue: Eout')
+    plt.xlabel('Height of Decision Tree')
+    plt.ylabel('Error rate')
+    plt.plot(height, E_in, c= 'r')
+    plt.plot(height, E_out, c= 'b')
+    plt.savefig('img/13.png')
 
 def problem_14():
     pass
@@ -46,7 +67,7 @@ def problem_16():
 def test():
     print('-- Test --')
     data = get_train_data()
-    dt = DecisionTree(data, 44)
+    dt = DecisionTree(data, None)
 
     error_count = get_error_rate(data[:, -1] ,dt.predict_all(data[:, :-1]))
     print('Height: ', dt.height())
