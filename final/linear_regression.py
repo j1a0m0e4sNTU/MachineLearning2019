@@ -3,9 +3,10 @@ import argparse
 from util import *
 
 parser = argparse.ArgumentParser()
-parser.add_argument('mode', choices=['train','predict'])
+parser.add_argument('mode', choices=['train','predict', 'exp'])
 parser.add_argument('-regular', help="Regularization weight", type= float, default= 0)
 parser.add_argument('-output', help= 'Submission name', default= 'linear.csv')
+parser.add_argument('-record', help= 'REcord file name', default= 'record.txt')
 args = parser.parse_args()
 
 inverse = lambda vector: np.linalg.inv(vector)
@@ -34,8 +35,8 @@ def train(regularization):
     train_nae, valid_nae = nae_error(pred_train, y_train), nae_error(pred_valid, y_valid)
     print('== Regularization: {} =='.format(regularization))
     print('        mse_error   |   WMAE_error   |   NAE_error')
-    print('train|  {:9f}  |   {:9f}  |   {:9f}'.format(train_mse, train_wmae, train_nae))
-    print('valid|  {:9f}  |   {:9f}  |   {:9f}'.format(valid_mse, valid_wmae, valid_nae))
+    print('train|  {:9f} |   {:9f}    |   {:9f}'.format(train_mse, train_wmae, train_nae))
+    print('valid|  {:9f} |   {:9f}    |   {:9f}'.format(valid_mse, valid_wmae, valid_nae))
     return train_mse, train_wmae, train_nae, valid_mse, valid_wmae, valid_nae
 
 def predict(file_name, regularization):
@@ -49,10 +50,37 @@ def predict(file_name, regularization):
     del x_train, x_test
     write_submission(pred, file_name)
 
+def expiriment():
+    regulize_rate = [0, 1, 10, 50, 100, 500, 1000]
+    TrainMSE = []
+    ValidMSE = []
+    TrainWMAE =[]
+    ValidWMAE =[]
+    TrainNAE = []
+    ValidNAE = []
+    for r in regulize_rate:
+        train_mse, train_wmae, train_nae, valid_mse, valid_wmae, valid_nae = train(r)
+        TrainMSE.append(train_mse)
+        TrainWMAE.append(train_wmae)
+        TrainNAE.append(train_nae)
+        ValidMSE.append(valid_mse)
+        ValidWMAE.append(valid_wmae)
+        ValidNAE.append(valid_nae)
+    print('***************')
+    print('Regularization: ', regulize_rate)
+    print('Train MSE :', TrainMSE)
+    print('Train WMAE:', TrainWMAE)
+    print('Train NAE :', TrainNAE) 
+    print('Valid MSE :', ValidMSE)
+    print('Valid WMAE:', ValidWMAE)
+    print('Valid NAE :', ValidNAE)
+     
 if __name__ == '__main__':
     if args.mode == 'train':
         print('- TRAIN -')
         train(args.regular)
-    else:
+    elif args.mode == 'predict':
         print('- PREDICT -')
         predict(args.output, args.regular)
+    elif args.mode == 'exp':
+        print('- Experiment -')

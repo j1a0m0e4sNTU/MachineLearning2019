@@ -79,3 +79,13 @@ def nae_error(pred, y):
     L1_distence = np.abs(y - pred)
     error = np.sum(L1_distence / y) / y.shape[0]
     return error
+
+def test():
+    pred = np.random.randn(10, 3)
+    y = np.random.rand(10, 3)
+    print('MSE: ', average_mse(pred, y))
+    print('WMAE:', wmae_error(pred, y))
+    print('NAE: ', nae_error(pred, y))
+
+if __name__ == '__main__':
+    test()
