@@ -17,9 +17,6 @@ def save_mean_std():
     mean_std[0] = np.mean(data, 0)
     mean_std[1] = np.std(data, 0)
     print(mean_std.shape)
-    # print('mean | std:')
-    # for i in range(mean_std.shape[1]) :
-    #     print('{}: {} | {}'.format(i, mean_std[0, i], mean_std[1, i]))
     np.save('mean_std.npy', mean_std)
 
 

@@ -1,5 +1,10 @@
 import numpy as np
 
+# == Y data ==
+# data 1 : Alpha value
+# data 2 : Mesh size
+# data 3 : Penetration rate
+
 x_train_path = '../../data_CSIE_ML/X_train/arr_0.npy'
 y_train_path = '../../data_CSIE_ML/Y_train/arr_0.npy'
 x_test_path  = '../../data_CSIE_ML/X_test/arr_0.npy'
@@ -49,6 +54,28 @@ def average_mse(pred, y):
     y_mean_std = np.load(y_mean_std_path)
     pred = denormalize(pred, y_mean_std[0], y_mean_std[1])
     y  = denormalize(y, y_mean_std[0], y_mean_std[1])
-    num = y.shape[0]
-    mse = np.sum((pred - y)**2) / (num * 3)
+    mse = np.sum((pred - y)**2) / y.shape[0]
     return mse
+
+def wmae_error(pred, y):
+    # Track 1 : Weighted Mean Absolute Error
+    y_mean_std = np.load(y_mean_std_path)
+    y_mean, y_std = y_mean_std[0], y_mean_std[1]
+    pred = denormalize(pred, y_mean, y_std)
+    y    = denormalize(y, y_mean, y_std)
+
+    weight = np.array([200, 1, 300])
+    L1_distence = np.abs(y - pred)
+    error = np.sum(L1_distence * weight) / y.shape[0]
+    return error
+
+def nae_error(pred, y):
+    # Track 2 : Normalized Absolute Error (NAE)
+    y_mean_std = np.load(y_mean_std_path)
+    y_mean, y_std = y_mean_std[0], y_mean_std[1]
+    pred = denormalize(pred, y_mean, y_std)
+    y    = denormalize(y, y_mean, y_std)
+
+    L1_distence = np.abs(y - pred)
+    error = np.sum(L1_distence / y) / y.shape[0]
+    return error
