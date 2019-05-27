@@ -57,7 +57,7 @@ def expiriment():
     x_train_new[:, :200], x_train_new[:, 200:] = x_train, x_train ** 2
     x_valid_new = np.zeros((x_valid.shape[0], 400))
     x_valid_new[:, :200], x_valid_new[:, 200:] = x_valid, x_valid ** 2
-    train(x_train_new, y_train, x_valid_new, y_valid)
+    train(x_train_new, y_train, x_valid_new, y_valid, args.regular)
     
 
 if __name__ == '__main__':
