@@ -52,19 +52,20 @@ def predict(file_name, regularization):
 
 def expiriment():
     x_train, y_train, x_valid, y_valid = get_train_data(0.2)
-    #x_train, x_valid = x_train[:, :200], x_valid[:, :200]
+    x_train, x_valid = x_train[:,5000:], x_valid[:,5000:]
     loss = LossManager()
     regular_list = [0, 0.1, 0.2, 0.3, 0.5, 0.7, 1]
     for regular in regular_list:
         results = train(x_train, y_train, x_valid, y_valid, regular)
         loss.record(str(regular), results)
     
-    loss.plot_all('linear regression with all features', 'regularization', 'records/linear-all-regular.png')
+    loss.plot_all('linear regression with last 5000 features', 'regularization', 'records/linear-last5000-regular.png')
 
 if __name__ == '__main__':
     if args.mode == 'train':
         print('- TRAIN -')
-        train(args.regular)
+        x_train, y_train, x_valid, y_valid = get_train_data(0.2)
+        train(x_train, y_train, x_valid, y_valid, args.regular)
     
     elif args.mode == 'predict':
         print('- PREDICT -')
