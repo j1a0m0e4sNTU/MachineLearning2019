@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 from matplotlib import pyplot as plt
-
+from util import average_mse, wmae_error, nae_error
 
 class LossManager():
     def __init__(self):
@@ -24,6 +24,13 @@ class LossManager():
         self.valid_mse_list.append(valid_mse)
         self.valid_wmae_list.append(valid_wmae)
         self.valid_nae_list.append(valid_nae)
+
+    def evaluate_and_record(self, interval, pred_train, y_train, pred_valid, y_valid):
+        train_mse, valid_mse = average_mse(pred_train, y_train), average_mse(pred_valid, y_valid)
+        train_wmae, valid_wmae = wmae_error(pred_train, y_train), wmae_error(pred_valid, y_valid)
+        train_nae, valid_nae = nae_error(pred_train, y_train), nae_error(pred_valid, y_valid)
+        results = (train_mse, train_wmae, train_nae, valid_mse, valid_wmae, valid_nae)
+        self.record(interval, results)
 
     def get_train_mse(self):
         return self.train_mse_list
