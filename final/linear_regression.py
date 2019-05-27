@@ -52,19 +52,14 @@ def predict(file_name, regularization):
 
 def expiriment():
     x_train, y_train, x_valid, y_valid = get_train_data(0.2)
+    x_train, x_valid = x_train[:, :200], x_valid[:, :200]
     loss = LossManager()
-    feature_size = 1000
-    interval = 20
+    regular_list = [0, 0.1, 0.2, 0.3, 0.5, 0.7, 1]
+    for regular in regular_list:
+        results = train(x_train, y_train, x_valid, y_valid, regular)
+        loss.record(str(regular), results)
     
-    for i in range(feature_size // interval):
-        f_start = 0
-        f_end   = (i + 1) * interval
-        results = train(x_train[:, f_start:f_end], y_train, x_valid[:, f_start:f_end], y_valid, args.regular)
-        loss.record(f_end, results)
-    
-    loss.plot_mse('MSE - linear regression with first x features', 'features', 'loss', 'records/linear-firstX-feature-mse.png')
-    loss.plot_wmae('WMAE - linear regression with first x features', 'features', 'loss', 'records/linear-firstX-feature-wmae.png')
-    loss.plot_nae('NAE - linear regression with first x features', 'features', 'loss', 'records/linear-firstX-feature-nae.png')
+    loss.plot_all('linear regression with first 200 features', 'regularization', 'records/linear-first200-regular.png')
 
 if __name__ == '__main__':
     if args.mode == 'train':

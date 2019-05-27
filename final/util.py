@@ -54,7 +54,7 @@ def average_mse(pred, y):
     y_mean_std = np.load(y_mean_std_path)
     pred = denormalize(pred, y_mean_std[0], y_mean_std[1])
     y  = denormalize(y, y_mean_std[0], y_mean_std[1])
-    mse = np.sum((pred - y)**2) / y.shape[0]
+    mse = np.sqrt(np.sum((pred - y)**2) / y.shape[0])
     return mse
 
 def wmae_error(pred, y):

@@ -41,32 +41,52 @@ class LossManager():
     def get_valid_nae(self):
         return self.valid_nae_list   
     
-    def plot_mse(self, title, x_label, y_label, fig_name):
+    def plot_mse(self, title, x_label, fig_name):
         plt.title(title)
         plt.xlabel(x_label)
-        plt.ylabel(y_label)
+        plt.ylabel('MSE')
         plt.plot(self.interval_list, self.train_mse_list, c= 'b')
         plt.plot(self.interval_list, self.valid_mse_list, c= 'r')
         plt.savefig(fig_name)
         plt.close()
 
-    def plot_wmae(self, title, x_label, y_label, fig_name):
+    def plot_wmae(self, title, x_label, fig_name):
         plt.title(title)
         plt.xlabel(x_label)
-        plt.ylabel(y_label)
+        plt.ylabel('WMAE')
         plt.plot(self.interval_list, self.train_wmae_list, c= 'b')
         plt.plot(self.interval_list, self.valid_wmae_list, c= 'r')
         plt.savefig(fig_name)
         plt.close()
 
-    def plot_nae(self, title, x_label, y_label, fig_name):
+    def plot_nae(self, title, x_label, fig_name):
         plt.title(title)
         plt.xlabel(x_label)
-        plt.ylabel(y_label)
+        plt.ylabel('NAE')
         plt.plot(self.interval_list, self.train_nae_list, c= 'b')
         plt.plot(self.interval_list, self.valid_nae_list, c= 'r')
         plt.savefig(fig_name)
         plt.close()
+
+    def plot_all(self, title, x_label, fig_name):
+        plt.subplot(3, 1, 1)
+        plt.title(title)
+        plt.ylabel('MSE')
+        plt.plot(self.interval_list, self.train_mse_list, c= 'b')
+        plt.plot(self.interval_list, self.valid_mse_list, c= 'r')
+
+        plt.subplot(3, 1, 2)
+        plt.ylabel('WMAE')
+        plt.plot(self.interval_list, self.train_wmae_list, c= 'b')
+        plt.plot(self.interval_list, self.valid_wmae_list, c= 'r')
+
+        plt.subplot(3, 1, 3)
+        plt.ylabel('NAE')
+        plt.xlabel(x_label)
+        plt.plot(self.interval_list, self.train_nae_list, c= 'b')
+        plt.plot(self.interval_list, self.valid_nae_list, c= 'r')
+
+        plt.savefig(fig_name)
 
 def test():
     import random
@@ -76,9 +96,7 @@ def test():
         results = [random.random() for _ in range(6)]
         loss_manager.record(i, results)
     
-    loss_manager.plot_mse('test', 'x', 'y', 'mse.png')
-    loss_manager.plot_wmae('test', 'x', 'y', 'wmae.png')
-    loss_manager.plot_nae('test', 'x', 'y', 'nae.png')
+    loss_manager.plot_all('test', 'x', 'test.png')
 
 if __name__ == '__main__':
     test()
