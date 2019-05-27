@@ -44,11 +44,12 @@ def predict(file_name, regularization):
     del x_train, x_test
     write_submission(pred, file_name)
 
-def expiriment():
+def expiriment(regular):
     x_train, y_train, x_valid, y_valid = get_train_data(0.2)
-    
-
-    train(x_train, y_train, x_valid, y_valid, args.regular)
+    x_train_new, x_valid_new = x_train[:, :200], x_valid[:, :200]
+    #x_train_new, x_valid_new = np.ones((x_train.shape[0], 201)), np.ones((x_valid.shape[0], 201))
+    #x_train_new[:, :200], x_valid_new[:, :200] = x_train[:, :200], x_valid[:, :200]
+    train(x_train_new, y_train, x_valid_new, y_valid, regular)
     
 
 if __name__ == '__main__':
@@ -70,4 +71,4 @@ if __name__ == '__main__':
     
     elif args.mode == 'exp':
         print('- Experiment -')
-        expiriment()
+        expiriment(args.regular)
