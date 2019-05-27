@@ -3,12 +3,6 @@ import argparse
 from util import *
 from loss_manager import LossManager
 
-parser = argparse.ArgumentParser()
-parser.add_argument('mode', choices=['train','predict', 'exp'])
-parser.add_argument('-regular', help="Regularization weight", type= float, default= 0)
-parser.add_argument('-output', help= 'Submission name', default= 'linear.csv')
-parser.add_argument('-record', help= 'REcord file name', default= 'record.txt')
-args = parser.parse_args()
 
 inverse = lambda vector: np.linalg.inv(vector)
 
@@ -58,6 +52,13 @@ def expiriment():
     
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('mode', choices=['train','predict', 'exp'])
+    parser.add_argument('-regular', help="Regularization weight", type= float, default= 0)
+    parser.add_argument('-output', help= 'Submission name', default= 'linear.csv')
+    parser.add_argument('-record', help= 'REcord file name', default= 'record.txt')
+    args = parser.parse_args()
+    
     if args.mode == 'train':
         print('- TRAIN -')
         x_train, y_train, x_valid, y_valid = get_train_data(0.2)
