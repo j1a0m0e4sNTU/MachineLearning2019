@@ -52,14 +52,14 @@ def predict(file_name, regularization):
 
 def expiriment():
     x_train, y_train, x_valid, y_valid = get_train_data(0.2)
-    x_train, x_valid = x_train[:, :200], x_valid[:, :200]
+    #x_train, x_valid = x_train[:, :200], x_valid[:, :200]
     loss = LossManager()
     regular_list = [0, 0.1, 0.2, 0.3, 0.5, 0.7, 1]
     for regular in regular_list:
         results = train(x_train, y_train, x_valid, y_valid, regular)
         loss.record(str(regular), results)
     
-    loss.plot_all('linear regression with first 200 features', 'regularization', 'records/linear-first200-regular.png')
+    loss.plot_all('linear regression with all features', 'regularization', 'records/linear-all-regular.png')
 
 if __name__ == '__main__':
     if args.mode == 'train':
