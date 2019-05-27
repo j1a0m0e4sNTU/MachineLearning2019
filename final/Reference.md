@@ -10,5 +10,10 @@
 * [Supplementary : VAC](http://people.virginia.edu/~lz2n/mse627/notes/Correlations.pdf)
 
 ## Useful Links
-* [XGboost - iT邦幫忙](https://github.com/cddlyf/GCANet)
+
+### XGboost
+* [XGboost - iT邦幫忙](https://ithelp.ithome.com.tw/articles/10205409)
 * [Kaggle機器學習競賽神器XGBoost介紹 - Medium](https://medium.com/jameslearningnote/%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90-%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92-%E7%AC%AC5-2%E8%AC%9B-kaggle%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%AB%B6%E8%B3%BD%E7%A5%9E%E5%99%A8xgboost%E4%BB%8B%E7%B4%B9-1c8f55cffcc)
+* [XGboost 原理 - 知乎](https://www.zhihu.com/question/58883125)
+* [XGBoost – A Scalable Tree Boosting System：Kaggle 競賽最常被使用的演算法之一](https://medium.com/@cyeninesky3/xgboost-a-scalable-tree-boosting-system-%E8%AB%96%E6%96%87%E7%AD%86%E8%A8%98%E8%88%87%E5%AF%A6%E4%BD%9C-2b3291e0d1fe)
+* [XGboost - 調參指南](https://blog.csdn.net/han_xiaoyang/article/details/52665396)
