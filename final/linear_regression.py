@@ -53,8 +53,8 @@ def predict(file_name, regularization):
 def expiriment():
     x_train, y_train, x_valid, y_valid = get_train_data(0.2)
     loss = LossManager()
-    feature_size = 500
-    interval = 10
+    feature_size = 1000
+    interval = 20
     
     for i in range(feature_size // interval):
         f_start = 0
