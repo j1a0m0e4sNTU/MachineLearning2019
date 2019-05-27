@@ -52,17 +52,9 @@ def predict(file_name, regularization):
 
 def expiriment():
     x_train, y_train, x_valid, y_valid = get_train_data(0.2)
-    x_train, x_valid = x_train[:,:200], x_valid[:,:200]
-    x_train_new = np.zeros((x_train.shape[0], 400))
-    x_train_new[:, :200]= x_train
-    x_valid_new = np.zeros((x_valid.shape[0], 400))
-    x_valid_new[:, :200] = x_valid
     
-    for i in range(200):
-        x_train_new[:, 200 + i] = x_train[:, i] - x_train[:, i - 1]
-        x_valid_new[:, 200 + i] = x_valid[:, i] - x_valid[:, i - 1]
-        
-    train(x_train_new, y_train, x_valid_new, y_valid, args.regular)
+
+    train(x_train, y_train, x_valid, y_valid, args.regular)
     
 
 if __name__ == '__main__':
