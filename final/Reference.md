@@ -8,3 +8,7 @@
 * 總合來說，feature matrix是有兩組常用的統計分析方法之結果。一般的物理方法，會試著推導出這兩個統計分析方法之解析解，然後試著fitting，找到決定軌跡的未知變數（in our case, mesh size L, alpha, transmission probability）。在我們的例子中，推導出解析解非常困難，然而我相信這5000維的feature matrix中包含了很多的消化過的資訊，希望足夠machine learning來估計那三個未知數。
 * 最後一提，以上總共10,000 (1e4)維的feature是從總共100,000 (1e5) steps的軌跡計算而來。我們也考慮過直接把軌跡位置的data當作feature（完全不做額外處理或分析），但資料量太大，所以後來改成現行的做法（資料量還是蠻大）
 * [Supplementary : VAC](http://people.virginia.edu/~lz2n/mse627/notes/Correlations.pdf)
+
+## Useful Links
+* [XGboost - iT邦幫忙](https://github.com/cddlyf/GCANet)
+* [Kaggle機器學習競賽神器XGBoost介紹 - Medium](https://medium.com/jameslearningnote/%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90-%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92-%E7%AC%AC5-2%E8%AC%9B-kaggle%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%AB%B6%E8%B3%BD%E7%A5%9E%E5%99%A8xgboost%E4%BB%8B%E7%B4%B9-1c8f55cffcc)

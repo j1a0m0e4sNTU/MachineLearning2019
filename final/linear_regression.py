@@ -18,8 +18,7 @@ def linear_regression(x, y, lambda_value= 0):
     weight = pseudo_inverse @ y
     return weight
 
-def train(regularization):
-    x_train, y_train, x_valid, y_valid = get_train_data(0.2)
+def train(x_train, y_train, x_valid, y_valid, regularization):
     pred_train = np.zeros_like(y_train)
     pred_valid = np.zeros_like(y_valid)
 
@@ -51,36 +50,25 @@ def predict(file_name, regularization):
     write_submission(pred, file_name)
 
 def expiriment():
-    regulize_rate = [0, 1, 10, 50, 100, 500, 1000]
-    TrainMSE = []
-    ValidMSE = []
-    TrainWMAE =[]
-    ValidWMAE =[]
-    TrainNAE = []
-    ValidNAE = []
-    for r in regulize_rate:
-        train_mse, train_wmae, train_nae, valid_mse, valid_wmae, valid_nae = train(r)
-        TrainMSE.append(train_mse)
-        TrainWMAE.append(train_wmae)
-        TrainNAE.append(train_nae)
-        ValidMSE.append(valid_mse)
-        ValidWMAE.append(valid_wmae)
-        ValidNAE.append(valid_nae)
-    print('***************')
-    print('Regularization: ', regulize_rate)
-    print('Train MSE :', TrainMSE)
-    print('Train WMAE:', TrainWMAE)
-    print('Train NAE :', TrainNAE) 
-    print('Valid MSE :', ValidMSE)
-    print('Valid WMAE:', ValidWMAE)
-    print('Valid NAE :', ValidNAE)
-     
+    x_train, y_train, x_valid, y_valid = get_train_data(0.2)
+    feature_size = 10000
+    interval = 100
+    
+    for i in range(feature_size // interval):
+        f_start = i * interval
+        f_end   = (i + 1) * interval
+        result = train(x_train[f_start:f_end], y_train, x_valid[f_start:f_end], y_valid, args.regular)
+        train_mse, train_wmae, train_nae, valid_mse, valid_wmae, valid_nae = result
+        
 if __name__ == '__main__':
     if args.mode == 'train':
         print('- TRAIN -')
         train(args.regular)
+    
     elif args.mode == 'predict':
         print('- PREDICT -')
         predict(args.output, args.regular)
+    
     elif args.mode == 'exp':
         print('- Experiment -')
+        expiriment()

@@ -1,9 +1,9 @@
 import numpy as np
 
 # == Y data ==
-# data 1 : Alpha value
+# data 1 : Penetration rate
 # data 2 : Mesh size
-# data 3 : Penetration rate
+# data 3 : Alpha value
 
 x_train_path = '../../data_CSIE_ML/X_train/arr_0.npy'
 y_train_path = '../../data_CSIE_ML/Y_train/arr_0.npy'
@@ -64,7 +64,7 @@ def wmae_error(pred, y):
     pred = denormalize(pred, y_mean, y_std)
     y    = denormalize(y, y_mean, y_std)
 
-    weight = np.array([200, 1, 300])
+    weight = np.array([300, 1, 200])
     L1_distence = np.abs(y - pred)
     error = np.sum(L1_distence * weight) / y.shape[0]
     return error
