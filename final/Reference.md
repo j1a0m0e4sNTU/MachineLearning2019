@@ -17,3 +17,13 @@
 * [XGboost 原理 - 知乎](https://www.zhihu.com/question/58883125)
 * [XGBoost – A Scalable Tree Boosting System：Kaggle 競賽最常被使用的演算法之一](https://medium.com/@cyeninesky3/xgboost-a-scalable-tree-boosting-system-%E8%AB%96%E6%96%87%E7%AD%86%E8%A8%98%E8%88%87%E5%AF%A6%E4%BD%9C-2b3291e0d1fe)
 * [XGboost - 調參指南](https://blog.csdn.net/han_xiaoyang/article/details/52665396)
+
+## Training skills
+* [A bunch of tips and tricks for training deep neural networks](https://towardsdatascience.com/a-bunch-of-tips-and-tricks-for-training-deep-neural-networks-3ca24c31ddc8)
+* [Estimating an Optimal Learning Rate For a Deep Neural Network](https://towardsdatascience.com/estimating-optimal-learning-rate-for-a-deep-neural-network-ce32f2556ce0)
+* [Train your deep model faster and sharper — two novel techniques](https://hackernoon.com/training-your-deep-model-faster-and-sharper-e85076c3b047)
+* [Deep Learning Tips and Tricks](https://towardsdatascience.com/deep-learning-tips-and-tricks-1ef708ec5f53)
+* [Deep Learning Tips and Tricks cheatsheet](https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-deep-learning-tips-and-tricks)
+* [DL tricks - github](https://github.com/Conchylicultor/Deep-Learning-Tricks#training)
+* [A Recipe for Training Neural Networks](http://karpathy.github.io/2019/04/25/recipe/)
+
