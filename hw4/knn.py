@@ -48,7 +48,7 @@ def problem_11():
     plt.title('Problem 11')
     plt.xlabel('k value')
     plt.ylabel('Ein rate')
-    plt.plot(k_list, Ein_list)
+    plt.scatter(k_list, Ein_list)
     plt.savefig('img/problem_11.png')
 
 def problem_12():
@@ -58,14 +58,14 @@ def problem_12():
     distance = get_distance_matrix(train_x, test_x)
     Eout_list = []
     for k in k_list:
-        prediction = get_prediction(distance, test_y, k)
+        prediction = get_prediction(distance, train_y, k)
         eout = get_error_rate(prediction, test_y)
         Eout_list.append(eout)
     
     plt.title('Problem 12')
     plt.xlabel('k value')
     plt.ylabel('Eout rate')
-    plt.plot(k_list, Eout_list)
+    plt.scatter(k_list, Eout_list)
     plt.savefig('img/problem_12.png')
 
 def problem_13():
