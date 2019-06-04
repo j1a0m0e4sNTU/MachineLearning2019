@@ -31,6 +31,14 @@ def get_prediction(distance_matrix, y, k= 1):
     prediction = np.sign(score)
     return prediction
 
+def get_uniform_prediction(distance_matrix, y, gamma):
+    # distance_matrix: (test_size, train_size)
+    # y : (train_size, )
+    matrix = np.exp((- gamma) * distance_matrix)
+    score = matrix @ y
+    prediction = np.sign(score)
+    return prediction
+
 def get_error_rate(prediction, gt):
     wrong_num = np.sum(prediction != gt)
     return wrong_num / len(gt)
@@ -69,10 +77,39 @@ def problem_12():
     plt.savefig('img/problem_12.png')
 
 def problem_13():
-    pass
+    gamma_list = [0.001, 0.1, 1, 10, 100]
+    train_x, train_y = get_train_data()
+    distance = get_distance_matrix(train_x, train_x)
+    Ein_list = []
+    for gamma in gamma_list:
+        prediction = get_uniform_prediction(distance, train_y, gamma)
+        ein = get_error_rate(prediction, train_y)
+        Ein_list.append(ein)
+    
+    plt.title('Problem 13')
+    plt.xlabel('gamma')
+    plt.ylabel('Ein')
+    gamma_list = [str(i) for i in gamma_list]
+    plt.scatter(gamma_list, Ein_list)
+    plt.savefig('img/problem_13.png')
 
 def problem_14():
-    pass
+    gamma_list = [0.001, 0.1, 1, 10, 100]
+    train_x, train_y = get_train_data()
+    test_x, test_y = get_test_data()
+    distance = get_distance_matrix(train_x, test_x)
+    Eout_list = []
+    for gamma in gamma_list:
+        prediction = get_uniform_prediction(distance, train_y, gamma)
+        eout = get_error_rate(prediction, test_y)
+        Eout_list.append(eout)
+    
+    plt.title('Problem 14')
+    plt.xlabel('gamma')
+    plt.ylabel('Eout')
+    gamma_list = [str(i) for i in gamma_list]
+    plt.scatter(gamma_list, Eout_list)
+    plt.savefig('img/problem_14.png')
 
 def test():
     train_x, train_y = get_train_data()
