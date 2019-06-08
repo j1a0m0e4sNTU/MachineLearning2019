@@ -80,6 +80,22 @@ def nae_error(pred, y):
     error = np.sum(L1_distence / y) / y.shape[0]
     return error
 
+def evaluate(pred, y):
+    y_mean_std = np.load(y_mean_std_path)
+    y_mean, y_std = y_mean_std[0], y_mean_std[1]
+    pred = denormalize(pred, y_mean, y_std)
+    y = denormalize(y, y_mean, y_std)
+    
+    size = pred.shape[0]
+    L1 = np.abs(pred - y)
+    # WMAE
+    weight = np.array([300, 1, 200])
+    wmae = np.sum(L1 * weight) / size
+    # NAE
+    nae = np.sum(L1 / y) / size
+    
+    return wmae, nae
+
 def test():
     pred = np.random.randn(10, 3)
     y = np.random.rand(10, 3)

@@ -12,6 +12,7 @@
 ## Useful Links
 
 ### XGboost
+* [XGboost - Official Document](https://xgboost.readthedocs.io/en/latest/index.html)
 * [XGboost - iT邦幫忙](https://ithelp.ithome.com.tw/articles/10205409)
 * [Kaggle機器學習競賽神器XGBoost介紹 - Medium](https://medium.com/jameslearningnote/%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90-%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92-%E7%AC%AC5-2%E8%AC%9B-kaggle%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%AB%B6%E8%B3%BD%E7%A5%9E%E5%99%A8xgboost%E4%BB%8B%E7%B4%B9-1c8f55cffcc)
 * [XGboost 原理 - 知乎](https://www.zhihu.com/question/58883125)
