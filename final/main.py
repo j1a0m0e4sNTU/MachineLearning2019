@@ -21,7 +21,8 @@ args = parser.parse_args()
 def main():
     model = nn.Sequential(
         nn.Linear(200, 3), 
-        nn.BatchNorm1d(3)
+        nn.BatchNorm1d(3),
+        nn.ReLU(inplace= True)
     )
     
     transform = Transform(start=0, end= 200)
