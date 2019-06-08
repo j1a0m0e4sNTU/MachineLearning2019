@@ -130,5 +130,12 @@ def test():
     print('WMAE:', wmae_error(pred, y))
     print('NAE: ', nae_error(pred, y))
 
+def test2():
+    pred = np.random.randn(10, 3)
+    y = np.random.randn(10, 3)
+    wmae, nae = evaluate(pred, y)
+    print('WMAE: {}'.format(wmae))
+    print('NAE: {}'.format(nae))
+
 if __name__ == '__main__':
-    test()
+    test2()
