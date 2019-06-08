@@ -57,15 +57,15 @@ class Manager():
             best_info = ''
             if valid_loss < self.best['loss']:
                 self.best['loss'] = valid_loss
-                best_info += 'Loss'
+                best_info += ' Loss '
             if valid_wmae < self.best['wmae']:
                 self.best['wmae'] = valid_wmae
-                best_info += 'WMAE '
+                best_info += ' WMAE '
             if valid_nae < self.best['nae']:
                 self.best['nae'] = valid_nae
-                best_info += 'NAE'
+                best_info += ' NAE '
 
-            self.record('------------  Epoch {} ----------- Best: {}'.format(epoch, best_info))
+            self.record('\n------------  Epoch {} ----------- Best: {}'.format(epoch, best_info))
             self.record('Train => Loss: {:.5f} | WMAE: {:.5f} | NAE: {:.5f}'.format(train_loss, train_wmae, train_nae))
             self.record('Valid => Loss: {:.5f} | WMAE: {:.5f} | NAE: {:.5f}'.format(valid_loss, valid_wmae, valid_nae))
                 
