@@ -3,6 +3,18 @@ import torch
 from torch.utils.data import Dataset, DataLoader
 from util import *
 
+## Transform
+class Transform():
+    # Get data from start ~ end 
+    def __init__(self, start= 0, end= 200):
+        self.start = start
+        self.end = end
+    
+    def __call__(self, data):
+        data = data[self.start: self.end]
+        return data
+
+## Dataset
 class TrainData(Dataset):
     def __init__(self, mode= 'train', transform= None):
         super().__init__()
@@ -48,7 +60,8 @@ class TestData(Dataset):
 
 def test_train():
     print('Test train')
-    dataset = TrainData('train')
+    transform = Transform(0, 200)
+    dataset = TrainData('train', transform)
     dataloader = DataLoader(dataset, batch_size= 8, shuffle= True)
     for i, data in enumerate(dataloader):
         if i == 10:
@@ -58,7 +71,8 @@ def test_train():
 
 def test_test():
     print('test test')
-    dataset = TestData()
+    transform = Transform(0, 200)
+    dataset = TestData(transform)
     dataloader = DataLoader(dataset, batch_size= 8, shuffle= False)
     for i, data in enumerate(dataloader):
         if i == 10:
