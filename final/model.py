@@ -25,7 +25,8 @@ class MLP(nn.Module):
                 input_size = symbol
             if symbol == 'D':
                 layers += [nn.Dropout()]
-
+        
+        layers = layers[:-2]
         self.net = nn.Sequential(*layers)
     
     def forward(self, inputs):
