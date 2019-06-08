@@ -70,8 +70,8 @@ class Manager():
             self.record('Valid => Loss: {:.5f} | WMAE: {:.5f} | NAE: {:.5f}'.format(valid_loss, valid_wmae, valid_nae))
             if self.save:
                 torch.save(self.model.state_dict(), self.save)
-                
-        self.record('========== Best record ==========')
+
+        self.record('\n========== Best record ==========')
         self.record('Loss: {:.5f} | WMAE: {:.5f} | NAE: {:.5f}'.format(self.best['loss'], self.best['wmae'], self.best['nae']))
 
     def validate(self, valid_data):

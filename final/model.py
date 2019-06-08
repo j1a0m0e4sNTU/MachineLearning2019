@@ -3,7 +3,7 @@ import torch.nn as nn
 
 mlp_config = {
     'A': [50, 3],
-    'B': [50, 'D', 3]
+    'B': [600, 3]
 }
 
 def get_mlp(input_size, config_name):
