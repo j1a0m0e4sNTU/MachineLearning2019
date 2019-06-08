@@ -4,6 +4,7 @@ from torch.utils.data import DataLoader
 from dataset import *
 from manager import Manager
 from model import *
+import torch.nn as nn
 
 parser = argparse.ArgumentParser()
 parser.add_argument('mode', help= 'Task: train/predict', choices=['train', 'predict'])
@@ -18,7 +19,7 @@ parser.add_argument('-record', help= 'Path to record file')
 args = parser.parse_args()
 
 def main():
-    model = get_mlp(200, 'Base')
+    model = nn.Linear(200, 3)
     transform = Transform(start=0, end= 200)
     if args.mode == 'train':
         print('Training ...')

@@ -28,8 +28,8 @@ def train(x_train, y_train, x_valid, y_valid, regularization):
     valid_wmae, valid_nae = evaluate(pred_valid, y_valid)
     print('== Regularization: {} =='.format(regularization))
     print('     |   WMAE_error   |   NAE_error')
-    print('train|    {:9f}    |   {:9f}'.format(train_wmae, train_nae))
-    print('valid|    {:9f}    |   {:9f}'.format(valid_wmae, valid_nae))
+    print('train|    {:9f}   |   {:9f}'.format(train_wmae, train_nae))
+    print('valid|    {:9f}   |   {:9f}'.format(valid_wmae, valid_nae))
     return train_wmae, train_nae, valid_wmae, valid_nae
 
 def predict(file_name, regularization):
