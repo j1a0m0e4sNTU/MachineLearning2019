@@ -40,8 +40,9 @@ class Manager():
                 loss = self.metric(out, train_y)
                 loss.backward()
                 self.optimizer.step()
-
-                train_loss += loss.item()
+                
+                out = out.detach().cpu().numpy()
+                train_y = train_y.detach().cpu().numpy()
                 wmae, nae = evaluate(out, train_y)
                 train_wmae += wmae 
                 train_nae += nae
@@ -68,13 +69,15 @@ class Manager():
             valid_x = valid_x.to(self.device)
             valid_y = valid_y.to(self.device)
             out = self.model(valid_x)
-
+            
+            out = out.detach().cpu().numpy()
+            valid_y = valid_y.detach().cpu().numpy()
             wmae, nae = evaluate(out, valid_y)
             valid_wmae += wmae
             valid_nae  += nae
         
         valid_wmae /= (step + 1)
-        vlaid_nae /= (step + 1)
+        valid_nae /= (step + 1)
         return valid_wmae, valid_nae
 
     def predict(self, test_data):

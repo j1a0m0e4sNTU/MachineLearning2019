@@ -38,8 +38,8 @@ class TrainData(Dataset):
         y = self.data_y[index]
         if self.transform:
             x = self.transform(x)
-        x = torch.from_numpy(x)
-        y = torch.from_numpy(y)
+        x = torch.FloatTensor(x)
+        y = torch.FloatTensor(y)
         return x, y
 
 class TestData(Dataset):
@@ -55,7 +55,7 @@ class TestData(Dataset):
         data = self.data[index]
         if self.transform:
             data = self.transform(data)
-        data = torch.from_numpy(data)
+        data = torch.FloatTensor(data)
         return data
 
 def test_train():

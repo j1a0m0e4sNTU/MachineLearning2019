@@ -1,13 +1,13 @@
 import torch
 import torch.nn as nn
 
-mlp_config ={
+mlp_config = {
     'A': [50, 3],
     'B': [50, 'D', 3]
 }
 
 def get_mlp(input_size, config_name):
-    config = get_mlp(config_name)
+    config = mlp_config[config_name]
     model = MLP(input_size, config)
     return model
 
