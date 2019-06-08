@@ -63,7 +63,7 @@ def test_test():
     for i, data in enumerate(dataloader):
         if i == 10:
             break
-        print('Batch {} | {}'.format(data.size()))
+        print('Batch {} | {}'.format(i, data.size()))
 
 if __name__ == '__main__':
     test_train()
