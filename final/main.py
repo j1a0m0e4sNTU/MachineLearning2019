@@ -19,7 +19,11 @@ parser.add_argument('-record', help= 'Path to record file')
 args = parser.parse_args()
 
 def main():
-    model = nn.Linear(200, 3)
+    model = nn.Sequential(
+        nn.Linear(200, 3), 
+        nn.BatchNorm1d(3)
+    )
+    
     transform = Transform(start=0, end= 200)
     if args.mode == 'train':
         print('Training ...')
