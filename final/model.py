@@ -2,8 +2,10 @@ import torch
 import torch.nn as nn
 
 mlp_config = {
+    'Base': [3],
     'A': [50, 3],
-    'B': [600, 3]
+    'B': [600, 3], 
+    'C': [600, 200, 3]
 }
 
 def get_mlp(input_size, config_name):
