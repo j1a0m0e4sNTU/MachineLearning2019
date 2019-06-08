@@ -19,7 +19,7 @@ parser.add_argument('-record', help= 'Path to record file')
 args = parser.parse_args()
 
 def main():
-    model = get_mlp(200, 'A')
+    model = get_mlp(200, 'C')
 
     transform = Transform(start=0, end= 200)
     if args.mode == 'train':

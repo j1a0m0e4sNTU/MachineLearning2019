@@ -1,0 +1,419 @@
+Info: 0608 | MLP (C) for first 200 feature
+
+Model: 
+ MLP(
+  (net): Sequential(
+    (0): Linear(in_features=200, out_features=600, bias=True)
+    (1): BatchNorm1d(600, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace)
+    (3): Linear(in_features=600, out_features=200, bias=True)
+    (4): BatchNorm1d(200, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU(inplace)
+    (6): Linear(in_features=200, out_features=3, bias=True)
+  )
+) 
+
+=========================
+
+------------  Epoch 0 ----------- Best:  Loss  WMAE  NAE 
+Train => Loss: 0.25169 | WMAE: 76.62456 | NAE: 1.99776
+Valid => Loss: 0.23468 | WMAE: 73.25229 | NAE: 1.59404
+
+------------  Epoch 1 ----------- Best:  Loss  WMAE  NAE 
+Train => Loss: 0.20606 | WMAE: 67.95123 | NAE: 1.52141
+Valid => Loss: 0.21649 | WMAE: 68.17141 | NAE: 1.14669
+
+------------  Epoch 2 ----------- Best:  Loss  WMAE  NAE 
+Train => Loss: 0.19475 | WMAE: 65.61530 | NAE: 1.36394
+Valid => Loss: 0.20284 | WMAE: 66.76683 | NAE: 1.10441
+
+------------  Epoch 3 ----------- Best:  WMAE  NAE 
+Train => Loss: 0.18753 | WMAE: 63.90730 | NAE: 1.35099
+Valid => Loss: 0.21148 | WMAE: 65.91877 | NAE: 1.06492
+
+------------  Epoch 4 ----------- Best:  Loss  WMAE  NAE 
+Train => Loss: 0.18409 | WMAE: 63.16119 | NAE: 1.32926
+Valid => Loss: 0.17508 | WMAE: 58.94320 | NAE: 1.01542
+
+------------  Epoch 5 ----------- Best: 
+Train => Loss: 0.17672 | WMAE: 61.64330 | NAE: 1.20628
+Valid => Loss: 0.25904 | WMAE: 72.87076 | NAE: 1.13271
+
+------------  Epoch 6 ----------- Best:  Loss  WMAE 
+Train => Loss: 0.17270 | WMAE: 60.68819 | NAE: 1.18615
+Valid => Loss: 0.16341 | WMAE: 57.32367 | NAE: 1.11545
+
+------------  Epoch 7 ----------- Best:  Loss  WMAE 
+Train => Loss: 0.16701 | WMAE: 59.55431 | NAE: 1.18307
+Valid => Loss: 0.14786 | WMAE: 54.75129 | NAE: 1.07945
+
+------------  Epoch 8 ----------- Best: 
+Train => Loss: 0.16247 | WMAE: 58.46968 | NAE: 1.17698
+Valid => Loss: 0.24729 | WMAE: 68.92008 | NAE: 1.09144
+
+------------  Epoch 9 ----------- Best:  NAE 
+Train => Loss: 0.16424 | WMAE: 58.91520 | NAE: 1.09568
+Valid => Loss: 0.17195 | WMAE: 60.12704 | NAE: 0.95064
+
+------------  Epoch 10 ----------- Best:  Loss  WMAE  NAE 
+Train => Loss: 0.16269 | WMAE: 58.43894 | NAE: 1.02724
+Valid => Loss: 0.13391 | WMAE: 51.37053 | NAE: 0.82844
+
+------------  Epoch 11 ----------- Best: 
+Train => Loss: 0.16018 | WMAE: 57.85794 | NAE: 1.01795
+Valid => Loss: 0.13961 | WMAE: 52.99719 | NAE: 0.94931
+
+------------  Epoch 12 ----------- Best: 
+Train => Loss: 0.15628 | WMAE: 56.88879 | NAE: 1.08062
+Valid => Loss: 0.13962 | WMAE: 52.83810 | NAE: 0.94531
+
+------------  Epoch 13 ----------- Best: 
+Train => Loss: 0.15426 | WMAE: 56.43286 | NAE: 0.99424
+Valid => Loss: 0.14154 | WMAE: 52.70525 | NAE: 0.97338
+
+------------  Epoch 14 ----------- Best: 
+Train => Loss: 0.15461 | WMAE: 56.39068 | NAE: 0.99616
+Valid => Loss: 0.16634 | WMAE: 59.53599 | NAE: 1.12340
+
+------------  Epoch 15 ----------- Best: 
+Train => Loss: 0.15597 | WMAE: 56.75686 | NAE: 1.03254
+Valid => Loss: 0.15404 | WMAE: 55.24652 | NAE: 1.09295
+
+------------  Epoch 16 ----------- Best: 
+Train => Loss: 0.15536 | WMAE: 56.37775 | NAE: 1.03160
+Valid => Loss: 0.14280 | WMAE: 53.25088 | NAE: 0.86510
+
+------------  Epoch 17 ----------- Best:  Loss  WMAE 
+Train => Loss: 0.15195 | WMAE: 55.79949 | NAE: 1.02764
+Valid => Loss: 0.13077 | WMAE: 50.17870 | NAE: 0.86555
+
+------------  Epoch 18 ----------- Best: 
+Train => Loss: 0.14931 | WMAE: 55.28150 | NAE: 1.02687
+Valid => Loss: 0.14744 | WMAE: 53.26596 | NAE: 0.89079
+
+------------  Epoch 19 ----------- Best: 
+Train => Loss: 0.14789 | WMAE: 54.83493 | NAE: 0.92960
+Valid => Loss: 0.17593 | WMAE: 59.61428 | NAE: 0.89504
+
+------------  Epoch 20 ----------- Best:  NAE 
+Train => Loss: 0.14901 | WMAE: 54.94788 | NAE: 0.94897
+Valid => Loss: 0.13643 | WMAE: 52.22728 | NAE: 0.81908
+
+------------  Epoch 21 ----------- Best: 
+Train => Loss: 0.14625 | WMAE: 54.45398 | NAE: 0.87516
+Valid => Loss: 0.15384 | WMAE: 54.00580 | NAE: 1.06505
+
+------------  Epoch 22 ----------- Best: 
+Train => Loss: 0.14675 | WMAE: 54.51862 | NAE: 0.94898
+Valid => Loss: 0.13813 | WMAE: 51.95919 | NAE: 0.88998
+
+------------  Epoch 23 ----------- Best:  NAE 
+Train => Loss: 0.14592 | WMAE: 54.22286 | NAE: 0.93799
+Valid => Loss: 0.14692 | WMAE: 53.80855 | NAE: 0.81139
+
+------------  Epoch 24 ----------- Best: 
+Train => Loss: 0.14606 | WMAE: 54.15338 | NAE: 0.92891
+Valid => Loss: 0.13681 | WMAE: 51.28983 | NAE: 0.84204
+
+------------  Epoch 25 ----------- Best: 
+Train => Loss: 0.14655 | WMAE: 54.30333 | NAE: 0.89407
+Valid => Loss: 0.14995 | WMAE: 53.21227 | NAE: 0.88825
+
+------------  Epoch 26 ----------- Best: 
+Train => Loss: 0.14420 | WMAE: 53.84043 | NAE: 0.86304
+Valid => Loss: 0.17610 | WMAE: 58.11961 | NAE: 0.90081
+
+------------  Epoch 27 ----------- Best: 
+Train => Loss: 0.14250 | WMAE: 53.35029 | NAE: 0.91751
+Valid => Loss: 0.17782 | WMAE: 58.50320 | NAE: 0.92706
+
+------------  Epoch 28 ----------- Best: 
+Train => Loss: 0.14315 | WMAE: 53.54876 | NAE: 0.87416
+Valid => Loss: 0.13858 | WMAE: 51.86716 | NAE: 0.86934
+
+------------  Epoch 29 ----------- Best: 
+Train => Loss: 0.14366 | WMAE: 53.59378 | NAE: 0.90768
+Valid => Loss: 0.13861 | WMAE: 52.39168 | NAE: 0.95672
+
+------------  Epoch 30 ----------- Best: 
+Train => Loss: 0.14255 | WMAE: 53.36366 | NAE: 0.90691
+Valid => Loss: 0.13599 | WMAE: 51.42531 | NAE: 1.00024
+
+------------  Epoch 31 ----------- Best: 
+Train => Loss: 0.14187 | WMAE: 53.12576 | NAE: 0.92209
+Valid => Loss: 0.17858 | WMAE: 59.26341 | NAE: 1.17632
+
+------------  Epoch 32 ----------- Best: 
+Train => Loss: 0.14231 | WMAE: 53.30812 | NAE: 0.89961
+Valid => Loss: 0.13318 | WMAE: 50.74192 | NAE: 0.83033
+
+------------  Epoch 33 ----------- Best: 
+Train => Loss: 0.13988 | WMAE: 52.69268 | NAE: 0.90989
+Valid => Loss: 0.14074 | WMAE: 52.76699 | NAE: 1.00845
+
+------------  Epoch 34 ----------- Best: 
+Train => Loss: 0.13961 | WMAE: 52.52272 | NAE: 0.88361
+Valid => Loss: 0.15397 | WMAE: 54.21473 | NAE: 1.12719
+
+------------  Epoch 35 ----------- Best:  NAE 
+Train => Loss: 0.14063 | WMAE: 52.94311 | NAE: 0.84631
+Valid => Loss: 0.14658 | WMAE: 53.65628 | NAE: 0.77432
+
+------------  Epoch 36 ----------- Best: 
+Train => Loss: 0.13995 | WMAE: 52.75404 | NAE: 0.88552
+Valid => Loss: 0.16651 | WMAE: 56.35145 | NAE: 0.81877
+
+------------  Epoch 37 ----------- Best:  Loss  WMAE 
+Train => Loss: 0.13932 | WMAE: 52.52802 | NAE: 0.91491
+Valid => Loss: 0.12757 | WMAE: 49.27592 | NAE: 0.78086
+
+------------  Epoch 38 ----------- Best: 
+Train => Loss: 0.13957 | WMAE: 52.53675 | NAE: 0.85641
+Valid => Loss: 0.13434 | WMAE: 51.14034 | NAE: 0.88285
+
+------------  Epoch 39 ----------- Best: 
+Train => Loss: 0.13848 | WMAE: 52.34921 | NAE: 0.84637
+Valid => Loss: 0.16782 | WMAE: 56.92007 | NAE: 1.07324
+
+------------  Epoch 40 ----------- Best: 
+Train => Loss: 0.13820 | WMAE: 52.26901 | NAE: 0.91229
+Valid => Loss: 0.14038 | WMAE: 52.78299 | NAE: 0.99490
+
+------------  Epoch 41 ----------- Best: 
+Train => Loss: 0.13804 | WMAE: 52.16626 | NAE: 0.85329
+Valid => Loss: 0.14056 | WMAE: 52.53093 | NAE: 0.99575
+
+------------  Epoch 42 ----------- Best:  NAE 
+Train => Loss: 0.13736 | WMAE: 52.15668 | NAE: 0.89665
+Valid => Loss: 0.13454 | WMAE: 50.48812 | NAE: 0.70018
+
+------------  Epoch 43 ----------- Best:  Loss 
+Train => Loss: 0.13712 | WMAE: 51.94810 | NAE: 0.84411
+Valid => Loss: 0.12719 | WMAE: 49.41288 | NAE: 0.77446
+
+------------  Epoch 44 ----------- Best: 
+Train => Loss: 0.13803 | WMAE: 52.16333 | NAE: 0.88803
+Valid => Loss: 0.14596 | WMAE: 53.58053 | NAE: 0.94763
+
+------------  Epoch 45 ----------- Best: 
+Train => Loss: 0.13629 | WMAE: 51.83882 | NAE: 0.84915
+Valid => Loss: 0.13341 | WMAE: 50.34720 | NAE: 0.75186
+
+------------  Epoch 46 ----------- Best:  WMAE 
+Train => Loss: 0.13650 | WMAE: 51.81341 | NAE: 0.87424
+Valid => Loss: 0.13047 | WMAE: 49.07340 | NAE: 0.85305
+
+------------  Epoch 47 ----------- Best:  Loss 
+Train => Loss: 0.13779 | WMAE: 52.04389 | NAE: 0.82553
+Valid => Loss: 0.12651 | WMAE: 49.61585 | NAE: 0.74332
+
+------------  Epoch 48 ----------- Best: 
+Train => Loss: 0.13500 | WMAE: 51.46857 | NAE: 0.80564
+Valid => Loss: 0.13522 | WMAE: 51.07056 | NAE: 0.91031
+
+------------  Epoch 49 ----------- Best:  NAE 
+Train => Loss: 0.13654 | WMAE: 51.71994 | NAE: 0.85302
+Valid => Loss: 0.12815 | WMAE: 49.40131 | NAE: 0.64661
+
+------------  Epoch 50 ----------- Best: 
+Train => Loss: 0.13725 | WMAE: 51.86946 | NAE: 0.83216
+Valid => Loss: 0.14010 | WMAE: 51.58291 | NAE: 0.79862
+
+------------  Epoch 51 ----------- Best:  WMAE 
+Train => Loss: 0.13587 | WMAE: 51.43809 | NAE: 0.86169
+Valid => Loss: 0.12793 | WMAE: 48.86317 | NAE: 0.64679
+
+------------  Epoch 52 ----------- Best: 
+Train => Loss: 0.13651 | WMAE: 51.77227 | NAE: 0.82976
+Valid => Loss: 0.16873 | WMAE: 57.06125 | NAE: 1.07257
+
+------------  Epoch 53 ----------- Best: 
+Train => Loss: 0.13557 | WMAE: 51.49055 | NAE: 0.84464
+Valid => Loss: 0.14600 | WMAE: 53.22210 | NAE: 0.72289
+
+------------  Epoch 54 ----------- Best: 
+Train => Loss: 0.13465 | WMAE: 51.46210 | NAE: 0.83630
+Valid => Loss: 0.13103 | WMAE: 50.20896 | NAE: 0.72447
+
+------------  Epoch 55 ----------- Best: 
+Train => Loss: 0.13482 | WMAE: 51.36442 | NAE: 0.81631
+Valid => Loss: 0.13485 | WMAE: 51.69322 | NAE: 0.93894
+
+------------  Epoch 56 ----------- Best: 
+Train => Loss: 0.13370 | WMAE: 51.10789 | NAE: 0.84779
+Valid => Loss: 0.13833 | WMAE: 51.37205 | NAE: 0.68309
+
+------------  Epoch 57 ----------- Best: 
+Train => Loss: 0.13532 | WMAE: 51.51799 | NAE: 0.85885
+Valid => Loss: 0.12875 | WMAE: 49.66613 | NAE: 0.88699
+
+------------  Epoch 58 ----------- Best:  Loss 
+Train => Loss: 0.13532 | WMAE: 51.42793 | NAE: 0.83263
+Valid => Loss: 0.12636 | WMAE: 49.03132 | NAE: 0.69467
+
+------------  Epoch 59 ----------- Best: 
+Train => Loss: 0.13457 | WMAE: 51.25401 | NAE: 0.85182
+Valid => Loss: 0.13769 | WMAE: 51.98292 | NAE: 1.04519
+
+------------  Epoch 60 ----------- Best: 
+Train => Loss: 0.13423 | WMAE: 51.21859 | NAE: 0.84574
+Valid => Loss: 0.13864 | WMAE: 50.76713 | NAE: 0.64699
+
+------------  Epoch 61 ----------- Best: 
+Train => Loss: 0.13348 | WMAE: 50.96785 | NAE: 0.85459
+Valid => Loss: 0.12668 | WMAE: 49.26923 | NAE: 0.84098
+
+------------  Epoch 62 ----------- Best: 
+Train => Loss: 0.13346 | WMAE: 51.03818 | NAE: 0.80014
+Valid => Loss: 0.12914 | WMAE: 49.43459 | NAE: 0.75516
+
+------------  Epoch 63 ----------- Best: 
+Train => Loss: 0.13380 | WMAE: 51.04807 | NAE: 0.85098
+Valid => Loss: 0.15438 | WMAE: 53.48834 | NAE: 0.76235
+
+------------  Epoch 64 ----------- Best: 
+Train => Loss: 0.13275 | WMAE: 50.90562 | NAE: 0.81457
+Valid => Loss: 0.13251 | WMAE: 49.55102 | NAE: 0.70159
+
+------------  Epoch 65 ----------- Best:  NAE 
+Train => Loss: 0.13358 | WMAE: 51.00495 | NAE: 0.80690
+Valid => Loss: 0.12710 | WMAE: 48.98297 | NAE: 0.62417
+
+------------  Epoch 66 ----------- Best:  WMAE 
+Train => Loss: 0.13266 | WMAE: 50.77074 | NAE: 0.82555
+Valid => Loss: 0.12665 | WMAE: 48.82977 | NAE: 0.80061
+
+------------  Epoch 67 ----------- Best: 
+Train => Loss: 0.13350 | WMAE: 50.83117 | NAE: 0.85720
+Valid => Loss: 0.14046 | WMAE: 52.37736 | NAE: 1.05719
+
+------------  Epoch 68 ----------- Best: 
+Train => Loss: 0.13428 | WMAE: 51.06704 | NAE: 0.80918
+Valid => Loss: 0.13083 | WMAE: 50.13620 | NAE: 0.85541
+
+------------  Epoch 69 ----------- Best: 
+Train => Loss: 0.13220 | WMAE: 50.57419 | NAE: 0.81122
+Valid => Loss: 0.12988 | WMAE: 49.35394 | NAE: 0.88975
+
+------------  Epoch 70 ----------- Best: 
+Train => Loss: 0.13337 | WMAE: 50.89071 | NAE: 0.83683
+Valid => Loss: 0.12872 | WMAE: 49.55338 | NAE: 0.88319
+
+------------  Epoch 71 ----------- Best:  Loss  WMAE 
+Train => Loss: 0.13241 | WMAE: 50.78934 | NAE: 0.83756
+Valid => Loss: 0.12345 | WMAE: 48.16621 | NAE: 0.70040
+
+------------  Epoch 72 ----------- Best: 
+Train => Loss: 0.13311 | WMAE: 50.80336 | NAE: 0.83749
+Valid => Loss: 0.13860 | WMAE: 52.11421 | NAE: 1.21527
+
+------------  Epoch 73 ----------- Best:  Loss 
+Train => Loss: 0.13283 | WMAE: 50.73273 | NAE: 0.80472
+Valid => Loss: 0.12277 | WMAE: 48.33370 | NAE: 0.78557
+
+------------  Epoch 74 ----------- Best: 
+Train => Loss: 0.13160 | WMAE: 50.50593 | NAE: 0.80560
+Valid => Loss: 0.13594 | WMAE: 50.78928 | NAE: 0.63543
+
+------------  Epoch 75 ----------- Best: 
+Train => Loss: 0.13312 | WMAE: 50.87665 | NAE: 0.87156
+Valid => Loss: 0.12613 | WMAE: 48.93443 | NAE: 0.75460
+
+------------  Epoch 76 ----------- Best: 
+Train => Loss: 0.13333 | WMAE: 50.84245 | NAE: 0.87318
+Valid => Loss: 0.12708 | WMAE: 49.40288 | NAE: 0.74565
+
+------------  Epoch 77 ----------- Best: 
+Train => Loss: 0.13213 | WMAE: 50.55360 | NAE: 0.79219
+Valid => Loss: 0.12446 | WMAE: 48.53387 | NAE: 0.80906
+
+------------  Epoch 78 ----------- Best: 
+Train => Loss: 0.13180 | WMAE: 50.56385 | NAE: 0.79440
+Valid => Loss: 0.13559 | WMAE: 50.67682 | NAE: 0.89754
+
+------------  Epoch 79 ----------- Best: 
+Train => Loss: 0.13193 | WMAE: 50.57237 | NAE: 0.79261
+Valid => Loss: 0.12661 | WMAE: 49.45632 | NAE: 1.01014
+
+------------  Epoch 80 ----------- Best: 
+Train => Loss: 0.13070 | WMAE: 50.26002 | NAE: 0.83098
+Valid => Loss: 0.12987 | WMAE: 49.64265 | NAE: 0.85366
+
+------------  Epoch 81 ----------- Best: 
+Train => Loss: 0.13207 | WMAE: 50.68850 | NAE: 0.84955
+Valid => Loss: 0.12667 | WMAE: 48.31325 | NAE: 0.69919
+
+------------  Epoch 82 ----------- Best: 
+Train => Loss: 0.13209 | WMAE: 50.53291 | NAE: 0.81165
+Valid => Loss: 0.12709 | WMAE: 49.05309 | NAE: 0.70358
+
+------------  Epoch 83 ----------- Best:  Loss  WMAE 
+Train => Loss: 0.13082 | WMAE: 50.26021 | NAE: 0.80741
+Valid => Loss: 0.12237 | WMAE: 47.80462 | NAE: 0.82543
+
+------------  Epoch 84 ----------- Best: 
+Train => Loss: 0.13238 | WMAE: 50.57439 | NAE: 0.81071
+Valid => Loss: 0.12903 | WMAE: 48.76516 | NAE: 0.63158
+
+------------  Epoch 85 ----------- Best: 
+Train => Loss: 0.13061 | WMAE: 50.22301 | NAE: 0.77685
+Valid => Loss: 0.12710 | WMAE: 49.41637 | NAE: 0.85234
+
+------------  Epoch 86 ----------- Best: 
+Train => Loss: 0.13134 | WMAE: 50.32868 | NAE: 0.79172
+Valid => Loss: 0.14007 | WMAE: 51.95356 | NAE: 0.96287
+
+------------  Epoch 87 ----------- Best: 
+Train => Loss: 0.13182 | WMAE: 50.49768 | NAE: 0.85732
+Valid => Loss: 0.12704 | WMAE: 49.43798 | NAE: 0.88483
+
+------------  Epoch 88 ----------- Best: 
+Train => Loss: 0.13162 | WMAE: 50.47558 | NAE: 0.82985
+Valid => Loss: 0.13036 | WMAE: 49.70545 | NAE: 0.75863
+
+------------  Epoch 89 ----------- Best: 
+Train => Loss: 0.13291 | WMAE: 50.69774 | NAE: 0.80649
+Valid => Loss: 0.13080 | WMAE: 50.56501 | NAE: 0.92757
+
+------------  Epoch 90 ----------- Best:  Loss  WMAE 
+Train => Loss: 0.13160 | WMAE: 50.39993 | NAE: 0.79150
+Valid => Loss: 0.12025 | WMAE: 47.27873 | NAE: 0.72260
+
+------------  Epoch 91 ----------- Best: 
+Train => Loss: 0.13143 | WMAE: 50.35985 | NAE: 0.81285
+Valid => Loss: 0.12575 | WMAE: 49.31069 | NAE: 0.74943
+
+------------  Epoch 92 ----------- Best: 
+Train => Loss: 0.13197 | WMAE: 50.46933 | NAE: 0.86010
+Valid => Loss: 0.12631 | WMAE: 48.72365 | NAE: 0.62964
+
+------------  Epoch 93 ----------- Best: 
+Train => Loss: 0.13004 | WMAE: 50.06766 | NAE: 0.79008
+Valid => Loss: 0.13372 | WMAE: 49.91679 | NAE: 0.67350
+
+------------  Epoch 94 ----------- Best: 
+Train => Loss: 0.13215 | WMAE: 50.54194 | NAE: 0.80270
+Valid => Loss: 0.14145 | WMAE: 51.99582 | NAE: 0.64194
+
+------------  Epoch 95 ----------- Best:  NAE 
+Train => Loss: 0.13069 | WMAE: 50.21017 | NAE: 0.77464
+Valid => Loss: 0.12728 | WMAE: 48.61500 | NAE: 0.61107
+
+------------  Epoch 96 ----------- Best: 
+Train => Loss: 0.13040 | WMAE: 50.00830 | NAE: 0.80695
+Valid => Loss: 0.12566 | WMAE: 48.35562 | NAE: 0.71661
+
+------------  Epoch 97 ----------- Best: 
+Train => Loss: 0.12925 | WMAE: 49.92747 | NAE: 0.79894
+Valid => Loss: 0.12799 | WMAE: 49.45622 | NAE: 0.90618
+
+------------  Epoch 98 ----------- Best: 
+Train => Loss: 0.13099 | WMAE: 50.21203 | NAE: 0.79071
+Valid => Loss: 0.12509 | WMAE: 48.41061 | NAE: 0.70797
+
+------------  Epoch 99 ----------- Best: 
+Train => Loss: 0.13114 | WMAE: 50.22005 | NAE: 0.81799
+Valid => Loss: 0.12799 | WMAE: 48.84087 | NAE: 0.64197
+
+========== Best record ==========
+Loss: 0.12025 | WMAE: 47.27873 | NAE: 0.61107
