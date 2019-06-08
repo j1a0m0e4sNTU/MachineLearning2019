@@ -24,14 +24,13 @@ def train(x_train, y_train, x_valid, y_valid, regularization):
     
     del x_train, x_valid
     
-    train_mse, valid_mse = average_mse(pred_train, y_train), average_mse(pred_valid, y_valid)
-    train_wmae, valid_wmae = wmae_error(pred_train, y_train), wmae_error(pred_valid, y_valid)
-    train_nae, valid_nae = nae_error(pred_train, y_train), nae_error(pred_valid, y_valid)
+    train_wmae, train_nae = evaluate(pred_train, y_train)
+    valid_wmae, valid_nae = evaluate(pred_valid, y_valid)
     print('== Regularization: {} =='.format(regularization))
-    print('        mse_error   |   WMAE_error   |   NAE_error')
-    print('train|  {:9f} |   {:9f}    |   {:9f}'.format(train_mse, train_wmae, train_nae))
-    print('valid|  {:9f} |   {:9f}    |   {:9f}'.format(valid_mse, valid_wmae, valid_nae))
-    return train_mse, train_wmae, train_nae, valid_mse, valid_wmae, valid_nae
+    print('     |   WMAE_error   |   NAE_error')
+    print('train|    {:9f}    |   {:9f}'.format(train_wmae, train_nae))
+    print('valid|    {:9f}    |   {:9f}'.format(valid_wmae, valid_nae))
+    return train_wmae, train_nae, valid_wmae, valid_nae
 
 def predict(file_name, regularization):
     x_train, y_train, _, _ = get_train_data(0)
