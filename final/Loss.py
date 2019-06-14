@@ -28,7 +28,7 @@ class NAE(nn.Module):
 
     def forward(self, pred, gt):
         diff = torch.abs(pred - gt)
-        loss = torch.mean(diff / gt)
+        loss = torch.mean(torch.abs(diff / gt))
         return loss 
 
 def test():
