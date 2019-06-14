@@ -14,6 +14,20 @@ class Transform():
         data = data[self.start: self.end]
         return data
 
+class Transform_02():
+    # select start ~ end feature, and add quadratic term
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+    def __call__(self, data):
+        length = self.end - self.start
+        data_new = np.zeros(2 * length)
+        data_select = data[self.start : self.end]
+        data_new[:length] = data_select
+        data_new[length:] = data_select ** 2
+        return  data_new
+
 ## Dataset
 class TrainData(Dataset):
     def __init__(self, mode= 'train', transform= None):
@@ -79,6 +93,11 @@ def test_test():
             break
         print('Batch {} | {}'.format(i, data.size()))
 
+def test2():
+    transform = Transform_02(0, 10)
+    data = np.arange(100)
+    data_new = transform(data)
+    print(data_new)
+
 if __name__ == '__main__':
-    test_train()
-    test_test()
+    test2()
