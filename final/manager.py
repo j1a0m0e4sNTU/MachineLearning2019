@@ -12,7 +12,7 @@ class Manager():
             model.load_state_dict(torch.load(args.load))
         self.model = model.to(self.device)
         self.optimizer = optim.Adam(self.model.parameters(), lr= args.lr)
-        self.loss_func = MSE()
+        self.loss_func = WMAE()
         self.epoch_num = args.epoch
         self.batch_size = args.bs
         self.save = args.save

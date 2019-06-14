@@ -5,14 +5,15 @@ from dataset import *
 from manager import Manager
 from model import *
 import torch.nn as nn
+torch.manual_seed(1004)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('mode', help= 'Task: train/predict', choices=['train', 'predict'])
 parser.add_argument('-model', help= 'Model symbol for configuration')
 parser.add_argument('-input_dim', help= 'Input dimension', type= int, default= 200)
-parser.add_argument('-bs', help= 'batch size', type= int, default= 64)
+parser.add_argument('-bs', help= 'batch size', type= int, default= 512)
 parser.add_argument('-lr', help= 'learnig rate', type= float, default= 1e-3)
-parser.add_argument('-epoch', help= 'Epoch number', type= int, default= 50)
+parser.add_argument('-epoch', help= 'Epoch number', type= int, default= 100)
 parser.add_argument('-save', help= 'Path to save model')
 parser.add_argument('-load', help= 'Path to load model')
 parser.add_argument('-csv', help= 'Path to prediction file')
