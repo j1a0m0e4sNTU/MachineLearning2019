@@ -7,5 +7,5 @@
 # python3 main.py train -epoch 100 -lr 0.001 -info "0608 | MLP (A) for first 200 feature" -record records/0608_mlp_A.txt
 # python3 main.py train -epoch 100 -lr 0.001 -info "0608 | MLP (B) for first 200 feature" -record records/0608_mlp_B.txt
 # python3 main.py train -epoch 100 -lr 0.001 -info "0608 | MLP (C) for first 200 feature" -record records/0608_mlp_C.txt
-python3 main.py train -input_dim 400 -model B -epoch 100 -lr 0.001 -info "0614 | MLP (B) | first 200 feature + quadratic term" -record records/0614_mlp_B.txt
-python3 main.py train -input_dim 400 -model C -epoch 100 -lr 0.001 -info "0614 | MLP (C) | first 200 feature + quadratic term" -record records/0614_mlp_C.txt
+# python3 main.py train -input_dim 400 -model B -epoch 100 -lr 0.001 -info "0614 | MLP (B) | first 200 feature + quadratic term" -record records/0614_mlp_B.txt
+# python3 main.py train -input_dim 400 -model C -epoch 100 -lr 0.001 -info "0614 | MLP (C) | first 200 feature + quadratic term" -record records/0614_mlp_C.txt

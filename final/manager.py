@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 from util import evaluate
+from Loss import *
 
 class Manager():
     def __init__(self, model, args):
@@ -11,7 +12,7 @@ class Manager():
             model.load_state_dict(torch.load(args.load))
         self.model = model.to(self.device)
         self.optimizer = optim.Adam(self.model.parameters(), lr= args.lr)
-        self.loss_func = nn.MSELoss()
+        self.loss_func = MSE()
         self.epoch_num = args.epoch
         self.batch_size = args.bs
         self.save = args.save
