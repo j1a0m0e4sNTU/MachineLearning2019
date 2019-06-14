@@ -12,11 +12,14 @@ class MSE(nn.Module):
 class WMAE(nn.Module):
     def __init__(self):
         super().__init__()
-        self.weight = torch.Tensor([300, 1, 200])
+        self.weight = [300, 1, 200]
 
     def forward(self, pred, gt):
         diff = torch.abs(pred - gt)
-        loss = torch.sum(diff @ self.weight) / (gt.size(0) * torch.sum(self.weight))
+        loss = 0
+        for i in range(3):
+            loss += torch.sum(diff[:, i] * self.weight[i])
+        loss /= (gt.size(0) * sum(self.weight))
         return loss
 
 def test():
