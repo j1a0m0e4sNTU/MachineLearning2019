@@ -22,8 +22,17 @@ class WMAE(nn.Module):
         loss /= (gt.size(0) * sum(self.weight))
         return loss
 
+class NAE(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+    def forward(self, pred, gt):
+        diff = torch.abs(pred - gt)
+        loss = torch.mean(diff / gt)
+        return loss 
+
 def test():
-    loss_func = WMAE()
+    loss_func = NAE()
     pred = torch.randn(8, 3)
     gt = torch.randn(8, 3)
     loss = loss_func(pred, gt)
