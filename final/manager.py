@@ -18,6 +18,7 @@ class Manager():
         self.save = args.save
         self.csv = args.csv
         self.best = {'loss': 9999, 'wmae': 9999, 'nae': 9999}
+        self.record_file = None
         
         if args.record:
             self.record_file = open(args.record, 'w')
@@ -27,7 +28,8 @@ class Manager():
     
     def record(self, info):
         print(info)
-        self.record_file.write('{}\n'.format(info))
+        if self.record_file:
+            self.record_file.write('{}\n'.format(info))
 
     def train(self, train_data, valid_data):
         for epoch in range(self.epoch_num):
