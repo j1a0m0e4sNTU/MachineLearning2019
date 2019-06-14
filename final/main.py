@@ -9,7 +9,7 @@ import torch.nn as nn
 parser = argparse.ArgumentParser()
 parser.add_argument('mode', help= 'Task: train/predict', choices=['train', 'predict'])
 parser.add_argument('-model', help= 'Model symbol for configuration')
-parser.add_arguemnt('-input_dim', help= 'Input dimension', default= 200)
+parser.add_argument('-input_dim', help= 'Input dimension', type= int, default= 200)
 parser.add_argument('-bs', help= 'batch size', type= int, default= 64)
 parser.add_argument('-lr', help= 'learnig rate', type= float, default= 1e-3)
 parser.add_argument('-epoch', help= 'Epoch number', type= int, default= 50)
