@@ -30,8 +30,8 @@ def main():
         print('Training ...')
         train_set = TrainData('train', transform)
         valid_set = TrainData('valid', transform)
-        train_data = DataLoader(dataset= train_set, batch_size= args.bs, shuffle= True)
-        valid_data = DataLoader(dataset= valid_set, batch_size= args.bs)
+        train_data = DataLoader(dataset= train_set, batch_size= args.bs, shuffle= True, drop_last= True)
+        valid_data = DataLoader(dataset= valid_set, batch_size= args.bs, drop_last= True)
 
         manager = Manager(model, args)
         manager.train(train_data, valid_data)
