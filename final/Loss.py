@@ -31,8 +31,16 @@ class NAE(nn.Module):
         loss = torch.mean(torch.abs(diff / gt))
         return loss 
 
+class ABS(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+    def forward(self, pred, gt):
+        loss = torch.mean(torch.abs(pred - gt))
+        return loss
+
 def test():
-    loss_func = NAE()
+    loss_func = ABS()
     pred = torch.randn(8, 3)
     gt = torch.randn(8, 3)
     loss = loss_func(pred, gt)

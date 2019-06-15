@@ -10,4 +10,5 @@
 # python3 main.py train -input_dim 400 -model B -epoch 100 -lr 0.001 -info "0614 | MLP (B) | first 200 feature + quadratic term" -record records/0614_mlp_B.txt
 # python3 main.py train -input_dim 400 -model C -epoch 100 -lr 0.001 -info "0614 | MLP (C) | first 200 feature + quadratic term" -record records/0614_mlp_C.txt
 # python3 main.py train -input_dim 400 -model C -info "0614 | MLP (C) | first 200 feature + quadratic term | WMAELoss" -record records/0614_c_wmae.txt
-python3 main.py train -input_dim 400 -model C -info "0614 | MLP (C) | first 200 feature + quadratic term | NAELoss" -record records/0614_c_NAE.txt
+# python3 main.py train -input_dim 400 -model C -info "0614 | MLP (C) | first 200 feature + quadratic term | NAELoss" -record records/0614_c_NAE.txt
+python3 main.py train -input_dim 400 -model C -info "0614 | MLP (C) | first 200 feature + quadratic term | ABSLoss" -record records/0615_c_ABS.txt
