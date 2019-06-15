@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
-from util import evaluate
+from util import evaluate, write_submission
 from Loss import *
 
 class Manager():
@@ -71,7 +71,8 @@ class Manager():
             self.record('\n------------  Epoch {} ----------- Best: {}'.format(epoch, best_info))
             self.record('Train => Loss: {:.5f} | WMAE: {:.5f} | NAE: {:.5f}'.format(train_loss, train_wmae, train_nae))
             self.record('Valid => Loss: {:.5f} | WMAE: {:.5f} | NAE: {:.5f}'.format(valid_loss, valid_wmae, valid_nae))
-            if self.save:
+            
+            if self.save and 'WMAE' in best_info:
                 torch.save(self.model.state_dict(), self.save)
 
         self.record('\n========== Best record ==========')
@@ -101,4 +102,16 @@ class Manager():
 
     def predict(self, test_data):
         self.model.eval()
+        pred = None
+        for step, test_x in enumerate(test_data):
+            test_x = test_x.to(self.device)
+            out = self.model(test_x)
+            
+            if step == 0:
+                pred = out
+            else:
+                pred = torch.cat([pred, out], 0)
+
+        pred = pred.detach().cpu().numpy()
+        write_submission(pred, self.csv)
         
