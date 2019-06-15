@@ -25,7 +25,7 @@ def main():
     # model = get_mlp(args.input_dim, args.model)
     model = get_rnn(args.model, args.bs)
 
-    transform = Transform_03(start=0, end= 200)
+    transform = Transform_03()
     if args.mode == 'train':
         print('Training ...')
         train_set = TrainData('train', transform)

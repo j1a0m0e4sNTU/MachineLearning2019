@@ -13,7 +13,7 @@ mlp_config = {
 }
 
 rnn_config = {
-    'A': {'LSTM': {'input': 1, 'hidden': 512, 'layers': 1},'FC':[512, 3], 'bid':False},
+    'A': {'LSTM': {'input': 10, 'hidden': 256, 'layers': 1},'FC':[256, 3], 'bid':False},
 }
 
 def get_mlp(input_size, config_name):
@@ -94,11 +94,11 @@ def test_rnn():
     import sys
     symbol = sys.argv[1]
     model = get_rnn(symbol, 8)
-    inputs = torch.zeros(8, 200, 1)
+    inputs = torch.zeros(8, 20, 10)
     out = model(inputs)
     print('Parameter number: {}'.format(parameter_number(model)))
     print('Input  shape: {}'.format(inputs.size()))
     print('Output shape: {}'.format(out.size()))
 
 if __name__ == '__main__':
-    test_mlp()
+    test_rnn()
