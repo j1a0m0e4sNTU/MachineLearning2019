@@ -36,7 +36,7 @@ class Transform_03():
     def __call__(self, data):
         data_select = data[:200]
         data_select = data_select[::-1]
-        data_select = data_select.reshape(20, 10)
+        data_select = data_select.reshape(20, 10).copy()
         return data_select
 
 ## Dataset
