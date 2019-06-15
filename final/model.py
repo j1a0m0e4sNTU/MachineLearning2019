@@ -5,7 +5,9 @@ mlp_config = {
     'Base': [3],
     'A': [50, 3],
     'B': [600, 3], 
-    'C': [600, 200, 3]
+    'C': [600, 200, 3],
+    'C_d': [600, 'D', 200, 'D', 3],
+    'D': [1024, 512, 256, 3]
 }
 
 def get_mlp(input_size, config_name):
@@ -34,8 +36,10 @@ class MLP(nn.Module):
         return out
 
 def test_mlp():
+    import sys
+    symbol = sys.argv[1]
     inputs = torch.zeros(8, 200)
-    model = MLP(200, mlp_config['A'])
+    model = MLP(200, mlp_config[symbol])
     out = model(inputs)
     print(model)
     print('Output shape: {}'.format(out.size()))
