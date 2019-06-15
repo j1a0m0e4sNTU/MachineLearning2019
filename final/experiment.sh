@@ -17,4 +17,6 @@
 # python3 main.py train -input_dim 400 -model E -info "0615 | MLP (E) | first 200 feature + quadratic term | ABSLoss" -record records/0615_E_ABS.txt
 # python3 main.py train -input_dim 400 -model F -info "0615 | MLP (F) | first 200 feature + quadratic term | ABSLoss" -record records/0615_F_ABS.txt
 # python3 main.py train -model A -bs 128 -info "0615 | RNN (A) | first 200 feature | ABSLoss" -record records/0615_rnn_A.txt
-python3 main.py train -model A -bs 128 -info "0615 | RNN (A) | first 200 feature - reverse | ABSLoss" -record records/0615_rnn_A_reverse.txt
+# python3 main.py train -model A -bs 128 -info "0615 | RNN (A) | first 200 feature - reverse | ABSLoss" -record records/0615_rnn_A_reverse.txt
+python3 main.py train -model B -bs 128 -info "0615 | RNN (B) | first 200 feature - bidirectional | ABSLoss" -record records/0615_rnn_B.txt
+python3 main.py train -model C -bs 128 -info "0615 | RNN (C) | first 200 feature - bidirectional | ABSLoss" -record records/0615_rnn_C.txt

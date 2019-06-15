@@ -14,6 +14,8 @@ mlp_config = {
 
 rnn_config = {
     'A': {'LSTM': {'input': 10, 'hidden': 256, 'layers': 1},'FC':[256, 3], 'bid':False},
+    'B': {'LSTM': {'input': 10, 'hidden': 180, 'layers': 1},'FC':[360, 3], 'bid':True},
+    'C': {'LSTM': {'input': 10, 'hidden': 256, 'layers': 1},'FC':[512, 3], 'bid':True},
 }
 
 def get_mlp(input_size, config_name):
