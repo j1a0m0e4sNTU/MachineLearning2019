@@ -28,6 +28,17 @@ class Transform_02():
         data_new[length:] = data_select ** 2
         return  data_new
 
+class Transform_03():
+    # select start - end for RNN inputs
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+    def __call__(self, data):
+        data_select = np.zeros((self.end - self.start, 1))
+        data_select[:, 0] = data[self.start: self.end]
+        return data_select
+
 ## Dataset
 class TrainData(Dataset):
     def __init__(self, mode= 'train', transform= None):
@@ -94,10 +105,10 @@ def test_test():
         print('Batch {} | {}'.format(i, data.size()))
 
 def test2():
-    transform = Transform_02(0, 10)
+    transform = Transform_03(0, 10)
     data = np.arange(100)
     data_new = transform(data)
-    print(data_new)
+    print(data_new.shape)
 
 if __name__ == '__main__':
     test2()

@@ -22,9 +22,10 @@ parser.add_argument('-record', help= 'Path to record file')
 args = parser.parse_args()
 
 def main():
-    model = get_mlp(args.input_dim, args.model)
+    # model = get_mlp(args.input_dim, args.model)
+    model = get_rnn(args.model, args.bs)
 
-    transform = Transform_02(start=0, end= 200)
+    transform = Transform_03(start=0, end= 200)
     if args.mode == 'train':
         print('Training ...')
         train_set = TrainData('train', transform)

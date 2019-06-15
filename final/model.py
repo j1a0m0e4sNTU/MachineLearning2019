@@ -12,10 +12,21 @@ mlp_config = {
     'F': [1024, 512, 512, 3]
 }
 
+rnn_config = {
+    'A': {'LSTM': {'input': 1, 'hidden': 512, 'layers': 1},'FC':[512, 3], 'bid':False},
+}
+
 def get_mlp(input_size, config_name):
     config = mlp_config[config_name]
     model = MLP(input_size, config)
     return model
+
+def get_rnn(name, batch_size):
+    model = RNN(rnn_config[name], batch_size)
+    return model
+
+def parameter_number(model):
+    return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
 class MLP(nn.Module):
     def __init__(self, input_size, config):
@@ -43,7 +54,50 @@ def test_mlp():
     inputs = torch.zeros(8, 200)
     model = MLP(200, mlp_config[symbol])
     out = model(inputs)
-    print(model)
+    print('Parameter number: {}'.format(parameter_number(model)))
+    print('Input  shape: {}'.format(inputs.size()))
+    print('Output shape: {}'.format(out.size()))
+
+class RNN(nn.Module):
+    def __init__(self, config, batch_size):
+        super().__init__()
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        bidirection = config['bid']
+        self.lstm = nn.LSTM(
+            input_size = config['LSTM']['input'],
+            hidden_size = config['LSTM']['hidden'],
+            num_layers = config['LSTM']['layers'],
+            batch_first= True,
+            bidirectional = bidirection
+        )
+
+        hid_layer = config['LSTM']['layers'] * 2 if bidirection else config['LSTM']['layers']
+        self.state_shape = (hid_layer, batch_size, config['LSTM']['hidden'])
+
+        fc_layers = []
+        for i in range(len(config['FC']) - 1):
+            fc_layers.append(nn.Linear(config['FC'][i], config['FC'][i + 1]))
+            fc_layers.append(nn.ReLU(inplace= True))
+        fc_layers = fc_layers[:-1]
+        self.classifier = nn.Sequential(*fc_layers)
+
+    def forward(self, inputs):
+        # inputs size: (batch_size, sequence_len, feature_number)
+        # output size of LSTM: (batch_size, sequence_len,, hidden_size)
+        states = (torch.zeros(self.state_shape).to(self.device), torch.zeros(self.state_shape).to(self.device))
+        r_out, new_states = self.lstm(inputs, states)
+        last_out = r_out[:, -1, :].squeeze(1)
+        out = self.classifier(last_out)
+        return out
+
+def test_rnn():
+    import sys
+    symbol = sys.argv[1]
+    model = get_rnn(symbol, 8)
+    inputs = torch.zeros(8, 200, 1)
+    out = model(inputs)
+    print('Parameter number: {}'.format(parameter_number(model)))
+    print('Input  shape: {}'.format(inputs.size()))
     print('Output shape: {}'.format(out.size()))
 
 if __name__ == '__main__':
