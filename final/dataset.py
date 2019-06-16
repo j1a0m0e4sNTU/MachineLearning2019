@@ -29,7 +29,7 @@ class Transform_02():
         return  data_new
 
 class Transform_03():
-    # select start - end for RNN inputs
+    # select first 200 for RNN inputs
     def __init__(self):
         pass
 
@@ -37,6 +37,17 @@ class Transform_03():
         data_select = data[:200]
         data_select = data_select.reshape(20, 10).copy()
         return data_select
+
+class Transform_04():
+    # Add quadratic term for RNN inputs
+    def __init__(self):
+        pass
+
+    def __call__(self, data):
+        data_select = data[:200].reshape(20, 10).copy()
+        data_2 = data_select ** 2
+        data_new = np.hstack([data_select, data_2])
+        return data_new
 
 ## Dataset
 class TrainData(Dataset):
@@ -104,7 +115,7 @@ def test_test():
         print('Batch {} | {}'.format(i, data.size()))
 
 def test2():
-    transform = Transform_03()
+    transform = Transform_04()
     data = np.arange(1000)
     data_new = transform(data)
     print(data_new.shape)

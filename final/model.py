@@ -13,9 +13,9 @@ mlp_config = {
 }
 
 rnn_config = {
-    'A': {'LSTM': {'input': 10, 'hidden': 256, 'layers': 1},'FC':[256, 3], 'bid':False},
-    'B': {'LSTM': {'input': 10, 'hidden': 180, 'layers': 1},'FC':[360, 3], 'bid':True},
-    'C': {'LSTM': {'input': 10, 'hidden': 256, 'layers': 1},'FC':[512, 3], 'bid':True},
+    'A': {'LSTM': {'hidden': 256, 'layers': 1},'FC':[256, 3], 'bid':False},
+    'B': {'LSTM': {'hidden': 180, 'layers': 1},'FC':[360, 3], 'bid':True},
+    'C': {'LSTM': {'hidden': 256, 'layers': 1},'FC':[512, 3], 'bid':True},
 }
 
 def get_mlp(input_size, config_name):
@@ -23,8 +23,8 @@ def get_mlp(input_size, config_name):
     model = MLP(input_size, config)
     return model
 
-def get_rnn(name, batch_size):
-    model = RNN(rnn_config[name], batch_size)
+def get_rnn(input_dim, name, batch_size):
+    model = RNN(input_dim, rnn_config[name], batch_size)
     return model
 
 def parameter_number(model):
@@ -61,12 +61,12 @@ def test_mlp():
     print('Output shape: {}'.format(out.size()))
 
 class RNN(nn.Module):
-    def __init__(self, config, batch_size):
+    def __init__(self, input_dim, config, batch_size):
         super().__init__()
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         bidirection = config['bid']
         self.lstm = nn.LSTM(
-            input_size = config['LSTM']['input'],
+            input_size = input_dim,
             hidden_size = config['LSTM']['hidden'],
             num_layers = config['LSTM']['layers'],
             batch_first= True,

@@ -23,9 +23,9 @@ args = parser.parse_args()
 
 def main():
     # model = get_mlp(args.input_dim, args.model)
-    model = get_rnn(args.model, args.bs)
-
-    transform = Transform_03()
+    model = get_rnn(args.input_dim, args.model, args.bs)
+    transform = Transform_04()
+    
     if args.mode == 'train':
         print('Training ...')
         train_set = TrainData('train', transform)
