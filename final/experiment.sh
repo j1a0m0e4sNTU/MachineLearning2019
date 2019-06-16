@@ -28,6 +28,6 @@
 # python3 main.py train -input_dim 20 -model F -bs 125 -info "0615 | RNN (F) | first 200 feature + quadratic | ABSLoss" -record records/0616_rnn_F.txt
 # python3 main.py train -input_dim 20 -model G -bs 125 -info "0615 | RNN (G) | first 200 feature + quadratic | ABSLoss" -record records/0616_rnn_G.txt
 # python3 main.py train -input_dim 20 -model H -bs 125 -info "0615 | RNN (H) | first 200 feature + quadratic | ABSLoss" -record records/0616_rnn_H.txt
-python3 main.py train -input_dim 20 -model I -bs 125 -info "0615 | RNN (I) | first 200 feature + quadratic | ABSLoss" -record records/0616_rnn_I.txt -save ../../weights/0616_rnn_I.pkl
-python3 main.py predict -input_dim 20 -model I -bs 125 -load ../../weights/0616_rnn_I.pkl -csv prediction/0616_rnn_I_nae.csv
-
+# python3 main.py train -input_dim 20 -model I -bs 125 -info "0615 | RNN (I) | first 200 feature + quadratic | ABSLoss" -record records/0616_rnn_I.txt -save ../../weights/0616_rnn_I.pkl
+# python3 main.py predict -input_dim 20 -model I -bs 125 -load ../../weights/0616_rnn_I.pkl -csv prediction/0616_rnn_I_nae.csv
+python3 main.py train -input_dim 20 -model J -bs 125 -info "0616 | RNN (J) | first 200 feature + quadratic | ABSLoss" -record records/0616_rnn_J.txt -save ../../weights/0616_rnn_J.pkl

@@ -22,6 +22,7 @@ rnn_config = {
     'G': {'LSTM': {'hidden': 1024, 'layers': 1},'FC':[1024, 3], 'bid':False},
     'H': {'LSTM': {'hidden': 512, 'layers': 2},'FC':[512, 3], 'bid':False},
     'I': {'LSTM': {'hidden': 1024, 'layers': 2},'FC':[1024, 3], 'bid':False},
+    'J': {'LSTM': {'hidden': 512, 'layers': 3},'FC':[512, 3], 'bid':False},
 }
 
 def get_mlp(input_size, config_name):
