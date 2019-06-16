@@ -72,7 +72,7 @@ class Manager():
             self.record('Train => Loss: {:.5f} | WMAE: {:.5f} | NAE: {:.5f}'.format(train_loss, train_wmae, train_nae))
             self.record('Valid => Loss: {:.5f} | WMAE: {:.5f} | NAE: {:.5f}'.format(valid_loss, valid_wmae, valid_nae))
             
-            if self.save and 'WMAE' in best_info:
+            if self.save and 'NAE' in best_info:
                 torch.save(self.model.state_dict(), self.save)
 
         self.record('\n========== Best record ==========')
