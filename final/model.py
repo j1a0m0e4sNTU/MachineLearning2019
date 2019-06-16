@@ -18,6 +18,8 @@ rnn_config = {
     'C': {'LSTM': {'hidden': 256, 'layers': 1},'FC':[512, 3], 'bid':True},
     'D': {'LSTM': {'hidden': 512, 'layers': 1},'FC':[512, 3], 'bid':False},
     'E': {'LSTM': {'hidden': 256, 'layers': 1},'FC':[256, 256, 3], 'bid':False},
+    'F': {'LSTM': {'hidden': 256, 'layers': 2},'FC':[256, 3], 'bid':False},
+    'G': {'LSTM': {'hidden': 1024, 'layers': 1},'FC':[1024, 3], 'bid':False},
 }
 
 def get_mlp(input_size, config_name):
@@ -97,7 +99,7 @@ class RNN(nn.Module):
 def test_rnn():
     import sys
     symbol = sys.argv[1]
-    model = get_rnn(symbol, 8)
+    model = get_rnn(10, symbol, 8)
     inputs = torch.zeros(8, 20, 10)
     out = model(inputs)
     print('Parameter number: {}'.format(parameter_number(model)))
