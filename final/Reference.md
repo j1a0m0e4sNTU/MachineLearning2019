@@ -27,6 +27,7 @@
 * [Deep Learning Tips and Tricks cheatsheet](https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-deep-learning-tips-and-tricks)
 * [DL tricks - github](https://github.com/Conchylicultor/Deep-Learning-Tricks#training)
 * [A Recipe for Training Neural Networks](http://karpathy.github.io/2019/04/25/recipe/)
+* [9 Tips For Training Lightning-Fast Neural Networks In Pytorch](https://towardsdatascience.com/9-tips-for-training-lightning-fast-neural-networks-in-pytorch-8e63a502f565)
 
 ## Feature Engineering
 * [Feature Engineering 特徵工程中常見的方法](https://vinta.ws/code/feature-engineering.html)
