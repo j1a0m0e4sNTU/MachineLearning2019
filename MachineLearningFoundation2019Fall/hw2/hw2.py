@@ -1,5 +1,6 @@
 import math
 import numpy as np
+from matplotlib import pyplot as plt
 
 def online_p4():
     d_vc = 50
@@ -82,10 +83,45 @@ def online_p19_p20():
     print("E in:  {}".format(E_in))
     print("E_out: {}".format(E_out))
 
+def E_out(s, theta):
+    return 0.5 + 0.3 * s * (min(abs(theta), 1) - 1)
+
+def plot_hist(data_size, fig_name):
+    error_distance = []
+    error_in  = []
+    error_out = []
+    for _ in range(1000):
+        x = np.random.rand(data_size) * 2 - 1
+        y = np.ones(data_size)
+        y[x < 0] = -1
+        noise_idx = np.random.choice(data_size, int(0.2 * data_size), replace= False)
+        y[noise_idx] *= -1
+
+        theta, s = decision_stump(x, y)
+        pred = np.ones(data_size) * s
+        pred[x < theta] *= (-1)
+        e_in  = error(pred, y)
+        e_out = E_out(s, theta)
+        e_diff = e_in - e_out
+        error_distance.append(e_diff)
+        error_in.append(e_in)
+        error_out.append(e_out)
+    
+    print("E_in: {}".format(np.mean(error_in)))
+    print("E_out: {}".format(np.mean(error_out)))
+    plt.title("E_in: {:.3f} E_out: {:.3f}".format(np.mean(error_in), np.mean(error_out)))
+    plt.hist(error_distance)
+    plt.savefig(fig_name)
+    plt.close()
+
+def hw_p7_p8():
+    plot_hist(20, "imgs/p7.png")
+    plot_hist(2000, "imgs/p8.png")
+
 def test():
     x, y = get_data("test.dat")
     print(x.shape)
     print(y.shape)
 
 if __name__ == "__main__":
-    online_p19_p20()
+    hw_p7_p8()
